@@ -2,7 +2,7 @@
 Initially started by @0xAnalyst, I will try to update this repo continuously.
 It is meant to provide security analysts a 'cheatsheet' or 'guideline' to be used alongside CarbonBlack Response
 
-This repository will contains mainly 2 things:
+This repository will contain mainly 2 things:
 - Search queries to help security analysts finding malicious activities.
 - Response actions to help security analysts performing incident response activities. 
 
