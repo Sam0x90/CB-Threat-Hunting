@@ -7,10 +7,10 @@ This repository will contains mainly 2 things:
 - Response actions to help security analysts performing incident response activities. 
 
 ## Next steps
-[] Redefine and document the git structure
-[] Document usage guide
-[] Update old queries if needed
-[] Create new content
+- [ ] Redefine and document the git structure
+- [ ] Document usage guide
+- [ ] Update old queries if needed
+- [ ] Create new content
 
 ## CarbonBlack MITRE ATT&CK Mapping
 This will contain tested search queries to map most of Mitre ATTACK Framework to CarbonBlack. Will be updated from time to time
