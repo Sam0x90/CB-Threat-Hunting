@@ -1,3 +1,0 @@
-parent_name:w3wp.exe   (netconn_count:[1 TO *]) (childproc_count:[3 TO *]) 
-
-You might need to exclude enterprise valut and .NET processes 

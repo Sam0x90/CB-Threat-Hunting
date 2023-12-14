@@ -1,1 +1,0 @@
-parent_name:netsh.exe -process_name:conhost.exe -process_name:werfault.exe -cmdline:gatherNetworkInfo.vbs
