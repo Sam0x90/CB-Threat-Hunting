@@ -43,7 +43,7 @@ This repository will contain mainly 2 things:
 - Search queries to help security analysts finding malicious activities.
 - Response actions to help security analysts performing incident response activities.
 
-Please don't hesitate to propose any additional queries for inclusion in this repository.
+Please don't hesitate to propose any additional queries and response actions for inclusion in this repository.
 
 ## Roadmap
 
