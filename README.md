@@ -61,7 +61,7 @@ In CarbonBlack world, a detection is called a watchlist.\
 Once you've selected and downloaded the watchlists of your interest, place them all in a single folder.
 You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Scripts/API/watchlist_create.py) to "bulk" create all the selected watchlists in your CB Response instance via API. 
 
-The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field and call the /v1/watchlist API endpoint to create the watchlists selected.\
+The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field and call the ```/v1/watchlist``` API endpoint to create the watchlists selected.\
 You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
 
 
