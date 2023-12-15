@@ -2,6 +2,15 @@
 <h1 align="center">CB Live Response cheatsheet/guideline</h1>
 </div>
 
+Response action categories:
+- :e-mail: Email
+- :page_facing_up: File
+- :key: Identity
+- :globe_with_meridians: Network
+- :space_invader: Process
+- :computer: System (Configuration in RE&CT)
+
+
 # Email
 
 To-do
