@@ -1,14 +1,3 @@
-# Objective
-This readme aims at being a cheatsheet/guideline on how to perform various live response actions through the CarbonBlack EDR Live Response feature.\
-Some of them are applicable to any Windows prompt as we are calling a powershell to execute them.
-The response actions are categorized using similar categories as the ones defined in the [RE&CT framework](https://github.com/atc-project/atc-react). Here they are in alphabetic order: 
-- Email
-- File
-- Identity
-- Network
-- Process
-- System (Configuration in RE&CT)
-
 # Email
 
 To-do
