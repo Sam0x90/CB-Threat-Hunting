@@ -1,0 +1,7 @@
+name: File Download via Bitsadmin Usage
+index_type: 
+description: events
+references: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml
+tags: c2, defense_evasion, s0190, t1197, t1105
+search_query: process_name:"bitsadmin.exe" AND cmdline:"/transfer"
+on_hit: create_alert, log_to_syslog
