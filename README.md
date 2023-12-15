@@ -48,12 +48,56 @@ Please don't hesitate to propose any additional queries and response actions for
 ## Roadmap
 
 - [ ] Redefine and document the git structure
+- [x] Define rule format
 - [ ] Document usage guide
 - [ ] Update old queries if needed
 - [ ] Create new content
 
 See the [open issues](https://github.com/0xAnalyst/DefenderATPQueries/issues) for a full list of proposed features (and known issues).
 
+
+## Detection rule format
+The following describes the rule format used in this repository to document detection rules.
+YAML is the format and it is meant to be easy to use. It is also mapped with the API /v1/watchlist so that it can be easily automated via cbapi python module or for example a SOAR.
+
+### Format
+```
+name: 
+index_type: 
+description: 
+references: 
+tags: 
+search_query: 
+on_hit: 
+```
+
+### name
+String API argument when creating a watchlist.
+This represents the name of the watchlist.
+
+### index_type
+String API argument when creating a watchlist.
+This represents the index in which to search for this watchlist, its value must either be 'event' (for processes) or 'modules' (for binaries).
+
+### description
+String API argument when creating a watchlist.
+Description of the watchlist. The more precise the better. It should also include things like false positives.
+
+### references
+This is not an API argument. However it's recommended to include it as part of the description field.
+Reference to links and documents. For example is the rule is a translation from a Sigma rule, the sigma rule reference should be documented here. 
+
+### tags
+This is not an API argument. However it's recommended to include it as part of the description field.
+This represents the tags that can be added to the watchlist. MITRE ATT&CK tactics, techniques and subtechniques should be added here. 
+
+### search_query
+String API argument when creating a watchlist.
+This represents the query that will search into the index_type specified. 
+
+### on_hit
+This is not an API argument and must be check manually (please open PR/Issue if you found out how to define through API)
+This represents the different checkbox that can be checked to define the notification action(s) to trigger when the query hits.
 
 <!-- CONTRIBUTING -->
 ## Contributing
