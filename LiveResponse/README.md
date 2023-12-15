@@ -1,98 +1,142 @@
-These are commands specific to CarbonBlack EDR Live Response.
-Some of them are applicable to any Windows prompt as we are calling a powershell to execute them. 
+# Objective
+This readme aims at being a cheatsheet/guideline on how to perform various live response actions through the CarbonBlack EDR Live Response feature.\
+Some of them are applicable to any Windows prompt as we are calling a powershell to execute them.
+The response actions are categorized using similar categories as the ones defined in the [RE&CT framework](https://github.com/atc-project/atc-react). Here they are in alphabetic order: 
+- Email
+- File
+- Identity
+- Network
+- Process
+- System (Configuration in RE&CT)
 
-# General
+# Email
 
-# Identity
-
-## User information
-
-
-## Listing all users
-```execfg powershell net users```
-
-## Listing local admins
-```execfg powershell net localgroup administrators```
-
-## Listing local groups
-```execfg powershell net localgroup```
-
-## Listing Kerberos tickets
-```execfg powershell klist sessions```
-
-##
-
-# System
-
-## Get computer information
-```execfg powershell get-computerinfo```
-```execfg powershell systeminfo```
-```execfg powershell wmic computersystem list full```
-
-## Drives connected to the computer
-```drives```
-```execfg powershell fsutil fsinfo drives```
-
-## Installed updates
-```execfg powershell wmic qfe```
-
-## Installed softwares
-```execfg powershell wmic product get name,version```
-```execfg powershell get-package```
-
-## Query registry
-```reg query HKLM\SYSTEM\<your_key>```
-
-## Query Event Log
-```execfg powershell get-winevent -LogName 'Security' | where-object {$_.ID -eq 4688}```
-
-# Network
-
-## Getting network configuration
-```execfg powershell ipconfig /all```
-
-## Listing active connections
-```execfg netstat -anob```
-
-# Process 
+To-do
 
 # File
 
-## Listing shares
+## Windows
+
+### Listing shares
 ```execfg powershell net share```
 
-## Listing all files on computer
+### Listing all files on computer
 ```
 execfg powershell tree c:\ /F > files.txt
 get files.txt
 execfg powershell rm files.txt
 ```
 
-## Download a file
+### Download a file
 ```get <filename>```
 
-## Upload a file
+### Upload a file
 ```put <path>```
 
 This will prompt the carbonblack user to select which file to upload.
 
-## Get hash of file
+### Get hash of file
 ```execfg powershell get-filehash <filename> | Format-List```
 
 Format-List will avoid having truncated filepath in the output
 
-## Unzip a file
+### Unzip a file
 ```execfg powershell expand-archive tool.zip```
 
-## Execute a script/tool
+### Execute a script/tool
 After uploading using ```put```, run the following:
 ```execfg .\tool.exe```
 
-## Search for string pattern recursively
+### Search for string pattern recursively
 ```execfg findstr /s /i "<pattern>" *```
 
-## Print content of file in live console
+### Print content of file in live console
 ```execfg powershell gc <filename>```
 
-## Print first 50 bytes of file in hex format
+### Print first 50 bytes of file in hex format
 ```hexdump <filename>```
+
+## Unix/Linux
+
+To-do
+
+
+
+# Identity
+
+## Windows
+### User information
+
+
+### Listing all users
+```execfg powershell net users```
+
+### Listing local admins
+```execfg powershell net localgroup administrators```
+
+### Listing local groups
+```execfg powershell net localgroup```
+
+### Listing Kerberos tickets
+```execfg powershell klist sessions```
+
+## Linux/Unix
+
+To-do
+
+
+
+# Network
+
+## Windows
+
+### Getting network configuration
+```execfg powershell ipconfig /all```
+
+### Listing active connections
+```execfg netstat -anob```
+
+## Unix/Linux
+
+To-do
+
+
+
+# Process 
+
+## Windows
+
+## Unix/Linux
+
+To-do
+
+
+# System
+
+## Windows
+
+### Get computer information
+```execfg powershell get-computerinfo```
+```execfg powershell systeminfo```
+```execfg powershell wmic computersystem list full```
+
+### Drives connected to the computer
+```drives```
+```execfg powershell fsutil fsinfo drives```
+
+### Installed updates
+```execfg powershell wmic qfe```
+
+### Installed softwares
+```execfg powershell wmic product get name,version```
+```execfg powershell get-package```
+
+### Query registry
+```reg query HKLM\SYSTEM\<your_key>```
+
+### Query Event Log
+```execfg powershell get-winevent -LogName 'Security' | where-object {$_.ID -eq 4688}```
+
+### Unix/Linux
+
+To-do
