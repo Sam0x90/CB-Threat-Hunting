@@ -36,7 +36,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Initially started by @0xAnalyst, I will try to update this repo with my humble contributions.
+Initially started by @0xAnalyst, I will try to update this repo with my humble contributions.\
 It is meant to provide security analysts a 'cheatsheet' or 'guideline' to be used alongside CarbonBlack Response
 
 This repository will contain mainly 2 things:
@@ -57,7 +57,7 @@ See the [open issues](https://github.com/0xAnalyst/DefenderATPQueries/issues) fo
 
 
 ## Detection rule format
-The following describes the rule format used in this repository to document detection rules.
+The following describes the rule format used in this repository to document detection rules.\
 YAML is the format and it is meant to be easy to use. It is also mapped with the API /v1/watchlist so that it can be easily automated via cbapi python module or for example a SOAR.
 
 ### Format
@@ -72,32 +72,54 @@ on_hit:
 ```
 
 ### name
-String API argument when creating a watchlist.
+String API argument when creating a watchlist.\
 This represents the name of the watchlist.
 
 ### index_type
-String API argument when creating a watchlist.
+String API argument when creating a watchlist.\
 This represents the index in which to search for this watchlist, its value must either be 'event' (for processes) or 'modules' (for binaries).
 
+Values:
+- events
+- modules
+
 ### description
-String API argument when creating a watchlist.
+String API argument when creating a watchlist.\
 Description of the watchlist. The more precise the better. It should also include things like false positives.
 
 ### references
-This is not an API argument. However it's recommended to include it as part of the description field.
+This is not an API argument. However it's recommended to include it as part of the description field.\
 Reference to links and documents. For example is the rule is a translation from a Sigma rule, the sigma rule reference should be documented here. 
 
 ### tags
-This is not an API argument. However it's recommended to include it as part of the description field.
+This is not an API argument. However it's recommended to include it as part of the description field.\
 This represents the tags that can be added to the watchlist. MITRE ATT&CK tactics, techniques and subtechniques should be added here. 
 
 ### search_query
-String API argument when creating a watchlist.
+String API argument when creating a watchlist.\
 This represents the query that will search into the index_type specified. 
 
 ### on_hit
-This is not an API argument and must be check manually (please open PR/Issue if you found out how to define through API)
+This is not an API argument and must be check manually (please open PR/Issue if you found out how to define through API).\
 This represents the different checkbox that can be checked to define the notification action(s) to trigger when the query hits.
+
+Values:
+- email_me
+- create_alert
+- log_to_syslog
+
+### Example
+
+[file_download_via_bitsadmin.yaml](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Detections/file_download_via_bitsadmin.yaml)
+```
+name: File Download via Bitsadmin Usage
+index_type: events
+description: Detects the usage of the Windows built-in bitsadmin to download a file (especially with the transfer argument).
+references: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml
+tags: c2, defense_evasion, s0190, t1197, t1105
+search_query: process_name:"bitsadmin.exe" AND cmdline:"/transfer"
+on_hit: create_alert, log_to_syslog
+```
 
 <!-- CONTRIBUTING -->
 ## Contributing
