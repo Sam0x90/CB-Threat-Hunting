@@ -1,0 +1,7 @@
+name: Event log cleared via wevtutil
+index_type: events
+description: Detects the clearing of logs via the Windows built-in wevtutil utility.  
+references: https://attack.mitre.org/techniques/T1070/001/
+tags: s0645, t1070.001
+search_query: process_name:wevtutil.exe cmdline:cl
+on_hit: create_alert, log_to_syslog
