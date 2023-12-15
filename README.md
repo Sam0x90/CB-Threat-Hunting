@@ -49,12 +49,20 @@ Please don't hesitate to propose any additional queries and response actions for
 
 - [ ] Redefine and document the git structure
 - [x] Define rule format
+- [x] Create a script to automate watchlist creation via API
 - [ ] Document usage guide
 - [ ] Update old queries if needed
 - [ ] Create new content
 
 See the [open issues](https://github.com/0xAnalyst/DefenderATPQueries/issues) for a full list of proposed features (and known issues).
 
+## Watchlist automation
+Once you've selected and downloaded the watchlists of your interest, place them all in a single folder.
+You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Scripts/API/watchlist_create.py) to "bulk" create all the selected watchlists in your CB Response instance. 
+
+The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field. You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
+
+! Still need to properly test the script, but first results are looking good :) !
 
 ## Detection rule format
 The following describes the rule format used in this repository to document detection rules.\
