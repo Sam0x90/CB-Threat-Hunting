@@ -1,0 +1,7 @@
+name: Remote thread creation via powershell
+index_type: events
+description: Detects the creation of a remote thread by the powershell process, this is used by attacker to inject into processes. Might need fine tuning with targeted processes such as lsass.exe or rundll32 or regsvr32.
+references: https://attack.mitre.org/techniques/T1055/002/
+tags: defense_evasion, privilege_escalation, t1055.002
+search_query: (crossproc_type:"remotethread") and process_name:powershell.exe
+on_hit: create_alert, log_to_syslog

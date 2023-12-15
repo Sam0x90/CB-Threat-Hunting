@@ -1,0 +1,7 @@
+name: Hunting processes executed from User Profile
+index_type: events
+description: Detects/Hunts for processes executed from user profile
+references: https://attack.mitre.org/techniques/T1204/
+tags: execution, t1204
+search_query: path:c:\users\*\* -path:c:\users\*\*\*
+on_hit: log_to_syslog

@@ -1,1 +1,0 @@
- -childproc_name:mmc.exe AND parent_name:mmc.exe AND -process_name:vmconnect.exe

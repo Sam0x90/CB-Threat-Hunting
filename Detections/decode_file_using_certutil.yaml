@@ -1,0 +1,7 @@
+ name: Decoding file using certutil
+index_type: events
+description: Detects the usage of certutil for deobfuscation or dcoding purposes via the decode command line.
+references: https://attack.mitre.org/software/S0160, https://attack.mitre.org/techniques/T1140/
+tags: s0160, defense_evasion, t1140
+search_query: (process_name:certutil.exe AND (cmdline:-decode OR cmdline:-decodehex))
+on_hit: create_alert, log_to_syslog
