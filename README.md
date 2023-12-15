@@ -128,12 +128,12 @@ on_hit: create_alert, log_to_syslog
 You will find [here](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/LiveResponse/README.md) the cheatsheet/guideline that will help security analysts on how to perform various response actions through the CarbonBlack EDR Live Response feature.\
 The response actions categories are inspired from the ones defined in the [RE&CT framework](https://github.com/atc-project/atc-react).\
 Here they are in alphabetic order: 
-- Email
-- File
-- Identity
-- Network
-- Process
-- System (Configuration in RE&CT)
+- :e-mail: Email
+- :page_facing_up: File
+- :key: Identity
+- :globe_with_meridians: Network
+- :space_invader: Process
+- :computer: System (Configuration in RE&CT)
 
 
 # Scripts
