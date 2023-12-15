@@ -48,10 +48,10 @@ Please don't hesitate to propose any additional queries and response actions for
 
 # Roadmap
 
-- [ ] Redefine and document the git structure
+- [x] Redefine and document the git structure
 - [x] Define rule format
 - [x] Create a script to automate watchlist creation via API
-- [ ] Document usage guide
+- [x] Document usage guide
 - [ ] Update old queries if needed
 - [ ] Create new content
 
