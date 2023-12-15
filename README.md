@@ -34,18 +34,19 @@
 </div>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+# About The Project
 
 Initially started by @0xAnalyst, I will try to update this repo with my humble contributions.\
 It is meant to provide security analysts a 'cheatsheet' or 'guideline' to be used alongside CarbonBlack Response
 
 This repository will contain mainly 2 things:
-- Search queries to help security analysts finding malicious activities.
-- Response actions to help security analysts performing incident response activities.
+- **Detections**: Search queries to help security analysts finding malicious activities.
+- **LiveResponse**: Response actions via CB Live Response feature to help security analysts performing incident response activities.
+- **Scripts**: Scripts leveraging the the CB Response API to perform various actions.
 
 Please don't hesitate to propose any additional queries and response actions for inclusion in this repository.
 
-## Roadmap
+# Roadmap
 
 - [ ] Redefine and document the git structure
 - [x] Define rule format
@@ -56,28 +57,7 @@ Please don't hesitate to propose any additional queries and response actions for
 
 See the [open issues](https://github.com/0xAnalyst/DefenderATPQueries/issues) for a full list of proposed features (and known issues).
 
-## Detection automation
-In CarbonBlack world, a detection is called a watchlist.\
-Once you've selected and downloaded the watchlists of your interest, place them all in a single folder.
-You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Scripts/API/watchlist_create.py) to "bulk" create all the selected watchlists in your CB Response instance via API. 
-
-The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field and call the ```/v1/watchlist``` API endpoint to create the watchlists selected.\
-You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
-
-
-|<img width="472" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/3dd3acac-2652-4a21-b518-29398afc0878">|
-|:--:| 
-| *Script result for 2 yaml files* |
-
-
-|<img width="1263" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/2002d467-8db6-4537-9893-393a4565cbf5">|
-|:--:| 
-| *POST requests* |
-
-
-> [!WARNING]  
-> Still need to properly test the script, but first results are looking good :).
-
+# Detection
 
 ## Detection rule format
 The following describes the rule format used in this repository to document detection rules.\
@@ -144,20 +124,56 @@ search_query: process_name:"bitsadmin.exe" AND cmdline:"/transfer"
 on_hit: create_alert, log_to_syslog
 ```
 
+# LiveResponse
+You will find [here](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/LiveResponse/README.md) the cheatsheet/guideline that will help security analysts on how to perform various response actions through the CarbonBlack EDR Live Response feature.\
+The response actions categories are inspired from the ones defined in the [RE&CT framework](https://github.com/atc-project/atc-react).\
+Here they are in alphabetic order: 
+- Email
+- File
+- Identity
+- Network
+- Process
+- System (Configuration in RE&CT)
+
+
+# Scripts
+
+## Detection automation
+In CarbonBlack world, a detection is called a watchlist.\
+Once you've selected and downloaded the watchlists of your interest, place them all in a single folder.
+You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Scripts/API/watchlist_create.py) to "bulk" create all the selected watchlists in your CB Response instance via API. 
+
+The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field and call the ```/v1/watchlist``` API endpoint to create the watchlists selected.\
+You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
+
+
+|<img width="472" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/3dd3acac-2652-4a21-b518-29398afc0878">|
+|:--:| 
+| *Script result for 2 yaml files* |
+
+
+|<img width="1263" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/2002d467-8db6-4537-9893-393a4565cbf5">|
+|:--:| 
+| *POST requests* |
+
+
+> [!WARNING]  
+> Still need to properly test the script, but first results are looking good :).
+
 <!-- CONTRIBUTING -->
-## Contributing
+# Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
 
 <!-- LICENSE -->
-## License
+# License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+# Acknowledgments
 
 * []() https://github.com/0xAnalyst/CB-Threat-Hunting
 
