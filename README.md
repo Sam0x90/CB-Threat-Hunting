@@ -56,11 +56,13 @@ Please don't hesitate to propose any additional queries and response actions for
 
 See the [open issues](https://github.com/0xAnalyst/DefenderATPQueries/issues) for a full list of proposed features (and known issues).
 
-## Watchlist automation
+## Detection automation
+In CarbonBlack world, a detection is called a watchlist.\
 Once you've selected and downloaded the watchlists of your interest, place them all in a single folder.
-You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Scripts/API/watchlist_create.py) to "bulk" create all the selected watchlists in your CB Response instance. 
+You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Scripts/API/watchlist_create.py) to "bulk" create all the selected watchlists in your CB Response instance via API. 
 
-The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field. You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
+The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field and call the /v1/watchlist API endpoint to create the watchlists selected.\
+You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
 
 
 |<img width="472" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/3dd3acac-2652-4a21-b518-29398afc0878">|
