@@ -1,0 +1,7 @@
+name: WinRM usage for execution, persistence and lateral movement
+index_type: events
+description: Detects usage of WinRM for various tactics by identifying spawn process(es) by parent process wmiprvse.exe
+references: https://attack.mitre.org/techniques/T1047/, https://attack.mitre.org/techniques/T1546/003/, https://attack.mitre.org/techniques/T1021/006/
+tags: execution, t1047, privilege_escalation, persistence, t1546.003, lateral_movement, t1021.006
+search_query: parent_name:wmiprvse.exe AND -process_name:msiexec.exe -process_name:ccmdump.exe -process_name:werfault.exe
+on_hit: create_alert, log_to_syslog
