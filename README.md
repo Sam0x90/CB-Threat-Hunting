@@ -62,7 +62,20 @@ You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-
 
 The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field. You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
 
-! Still need to properly test the script, but first results are looking good :) !
+
+|<img width="472" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/3dd3acac-2652-4a21-b518-29398afc0878">|
+|:--:| 
+| *Script result for 2 yaml files* |
+
+
+|<img width="1263" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/2002d467-8db6-4537-9893-393a4565cbf5">|
+|:--:| 
+| *POST requests* |
+
+
+> [!WARNING]  
+> Still need to properly test the script, but first results are looking good :).
+
 
 ## Detection rule format
 The following describes the rule format used in this repository to document detection rules.\
