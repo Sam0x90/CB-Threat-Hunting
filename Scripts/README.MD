@@ -2,6 +2,3 @@
 
 This contains Python code using CarbonBlack Response API to make security analysts life eaiser. 
 Some scripts leveraged cbapi-python, so please look at [cbapi-python](https://github.com/carbonblack/cbapi-python) official repository on how to install the requirements and the config before using it.
-
-# Querywithinthelast24hours
-This executes a specific query and returns the results within the last 24 hours you can modify the time as you wish
