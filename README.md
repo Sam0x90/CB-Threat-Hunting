@@ -66,9 +66,9 @@ YAML is the format and it is meant to be easy to use. It is also mapped with the
 ### Filename
 The rule filename must adhere to the following rules:
 - Does not contain space (use ```_```)
-- Must contain the tactic name, followed by 
-- ...the technique ID, followed by
-- ...the name of the watchlist, and
+- Must contain the **tactic name**, followed by 
+- ...the **technique ID**, followed by
+- ...the **name of the watchlist**, and
 - ...must ends by ```.yaml``` (or ```.yml```)
 
 ##### Examples
