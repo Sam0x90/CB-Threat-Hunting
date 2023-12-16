@@ -127,7 +127,7 @@ Values:
 - create_alert
 - log_to_syslog
 
-This field can be used to get a sense of the rule maturity. 
+This field can be used to understand the maturity of the rule. 
 - If it contains only ```log_to_syslog```, this means the rule has to be fine tuned or it is meant to be a hunt
 - If it contains ```create_alert```, this mean that the rule has been tested in production environment and is not prone to (too much) false positives
 
