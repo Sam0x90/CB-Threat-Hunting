@@ -96,7 +96,7 @@ This represents the name of the watchlist.
 
 ### index_type
 String API argument when creating a watchlist.\
-This represents the index in which to search for this watchlist, its value must either be 'event' (for processes) or 'modules' (for binaries).
+This represents the index in which to search for this watchlist, its value must either be ```events``` (for processes) or ```modules``` (for binaries).
 
 Values:
 - events
