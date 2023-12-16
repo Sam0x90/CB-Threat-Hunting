@@ -1,4 +1,4 @@
-name: Usage of winrs
+name: Defense Evasion T1202 Usage of winrs
 index_type: events
 description: Detects the usage of winrs to bypass monitoring and restrictions on CLI
 references: https://attack.mitre.org/techniques/T1202/

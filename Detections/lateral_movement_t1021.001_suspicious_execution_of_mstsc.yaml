@@ -1,4 +1,4 @@
-name: Suspicious execution of mstsc.exe
+name: Lateral Movement T1021.001 Suspicious execution of mstsc.exe
 index_type: events
 description: Detects the execution of the Microsoft Terminal Services Client from suspicious parent process.
 references: https://attack.mitre.org/techniques/T1021/001/

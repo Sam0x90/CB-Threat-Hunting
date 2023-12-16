@@ -1,4 +1,4 @@
-name: Hunting processes executed from User Profile
+name: Execution T1204 Hunting processes executed from User Profile
 index_type: events
 description: Detects/Hunts for processes executed from user profile
 references: https://attack.mitre.org/techniques/T1204/

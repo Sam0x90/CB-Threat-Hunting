@@ -1,4 +1,4 @@
-name: Process creation via WMI usage
+name: Exection T1047 Process creation via WMI usage
 index_type: events
 description: Detects the usage of WMI in order to spawn new processes
 references: https://attack.mitre.org/techniques/T1047/

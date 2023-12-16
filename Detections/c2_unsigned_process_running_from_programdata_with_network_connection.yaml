@@ -1,4 +1,4 @@
-name: Unsigned process running from programdata performing network connection
+name: C2 Unsigned process running from programdata performing network connection
 index_type: events
 description: Detects unsigned process(es) running from programdata folder performing network connection.
 references: n/a

@@ -1,4 +1,4 @@
-name: Application shimming via sdbinst.exe
+name: Privilege Escalation, Persistence T1546.011 Application shimming via sdbinst.exe
 index_type: events
 description: Detects the usage of the utility sdbinst.exe that can set registry key for application shimming.
 references: https://attack.mitre.org/techniques/T1546/011/, https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html

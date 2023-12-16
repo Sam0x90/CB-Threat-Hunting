@@ -1,4 +1,4 @@
-name: Proxy binary and lateral movement using mmc
+name: Defense Evasion, Lateral Movement T1218.014, T1021.003 Proxy binary and lateral movement using mmc
 index_type: events
 description: Detects the usage of mmc to spawn processes in order to bypass defenses. It can also be used to move lateral by leveraging the remote service DCOM via RPC.
 references: https://attack.mitre.org/techniques/T1218/014/, https://attack.mitre.org/techniques/T1021/003/, https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_susp_child_process.yml
