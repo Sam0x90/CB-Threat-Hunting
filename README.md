@@ -63,6 +63,22 @@ See the [open issues](https://github.com/0xAnalyst/DefenderATPQueries/issues) fo
 The following describes the rule format used in this repository to document detection rules.\
 YAML is the format and it is meant to be easy to use. It is also mapped with the API /v1/watchlist so that it can be easily automated via cbapi python module or for example a SOAR.
 
+### Filename
+The rule filename must adhere to the following rules:
+- Does not contain space (use ````_```)
+- Must contain the tactic name, followed by 
+- ...the technique ID, followed by
+- ...the name of the watchlist, and
+- ...must ends by ```.yaml``` (or ````.yml``)
+
+##### Examples
+- No existing technique
+  - Try at least to pick the tactic relevant to your detection such as: ```c2_unsigned_process_running_from_programdata_with_network_connection.yaml```
+- One tactic, one technique
+  - ```defense_evasion_t1202_usage_of_winrs.yaml```
+- Multiple tactics and techniques
+  - ```persistence_t1505.003_discovery_t1082_webshell_detection_via_commands_executed_from_web_server_process.yaml```
+
 ### Format
 ```
 name: 
@@ -110,6 +126,10 @@ Values:
 - email_me
 - create_alert
 - log_to_syslog
+
+This field can be used to get a sense of the rule maturity. 
+- If it contains only ```log_to_syslog```, this means the rule has to be fine tuned or it is meant to be a hunt
+- If it contains ```create_alert```, this mean that the rule has been tested in production environment and is not prone to (too much) false positives
 
 ### Example
 
