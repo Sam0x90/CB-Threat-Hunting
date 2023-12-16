@@ -1,4 +1,4 @@
-name: Execution, Privilege Escalation, Persistence, Lateral Movement, T1047, T1546.003, T1021.006 WinRM usage for execution, persistence and lateral movement
+name: Execution, T1047, Privilege Escalation, Persistence, T1546.003, Lateral Movement, T1021.006 WinRM usage for execution, persistence and lateral movement
 index_type: events
 description: Detects usage of WinRM for various tactics by identifying spawn process(es) by parent process wmiprvse.exe.
 references: https://attack.mitre.org/techniques/T1047/, https://attack.mitre.org/techniques/T1546/003/, https://attack.mitre.org/techniques/T1021/006/

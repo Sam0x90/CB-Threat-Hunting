@@ -1,0 +1,7 @@
+name: Execution T1204.002 Suspicious processes spawned by Office or user application
+index_type: events
+description: Detects the creation of suspcious cli/utility processes spawned by Office and other user-oriented applications, likely indicating that user has been tricked to open a malicious file.
+references: https://attack.mitre.org/techniques/T1204/002/, https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_office_susp_child_processes.yml
+tags: execution, t1204.002
+search_query: (process_name:cmd.exe OR process_name:powershell.exe OR process_name:wscript.exe OR process_name:cscript.exe OR process_name:bitsadmin.exe OR process_name:certutil.exe OR process_name:curl.exe OR process_name:mshta.exe OR process_name:rundll32.exe OR process_name:regsvr32.exe OR process_name:schtasks.exe OR process_name:wmic.exe) AND (parent_name:winword.exe OR parent_name:excel.exe OR parent_name:wordpad.exe OR parent_name:visio.exe OR parent_name:powerpnt.exe OR parent_name:onenote.exe OR parent_name:mspub.exe)
+on_hit: create_alert, log_to_syslog
