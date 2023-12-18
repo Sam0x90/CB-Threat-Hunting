@@ -1,4 +1,4 @@
- name: Defense Evasion T1140 Decoding file using certutil
+name: Defense Evasion T1140 Decoding file using certutil
 index_type: events
 description: Detects the usage of certutil for deobfuscation or dcoding purposes via the decode command line.
 references: https://attack.mitre.org/software/S0160, https://attack.mitre.org/techniques/T1140/
