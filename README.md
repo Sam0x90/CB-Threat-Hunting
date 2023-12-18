@@ -178,7 +178,7 @@ You can read about those fields in [Detection rule format](https://github.com/Sa
 
 
 > [!WARNING]  
-> Still need to properly test the script, but first results are looking good :).
+> Watchlist action type is not supported yet by the script but it is a good reason to validate newly created watchlist one by one.
 
 <!-- CONTRIBUTING -->
 # Contributing
