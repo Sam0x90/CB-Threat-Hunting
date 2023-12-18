@@ -9,6 +9,7 @@ parser = argparse.ArgumentParser(description="Create watchlists in Carbon Black 
 parser.add_argument("--folder", required=True, help="Path to the folder containing YAML watchlist files")
 parser.add_argument("--apikey", required=True, help="API key for Carbon Black Response")
 parser.add_argument("--url", required=True, help="URL of the Carbon Black Response server")
+parser.add_argument("--no-verify-tls", action='store_true', help="Disable TLS certificate verification")
 
 # Parse arguments
 args = parser.parse_args()
@@ -17,6 +18,7 @@ args = parser.parse_args()
 watchlist_dir = args.folder
 api_key = args.apikey
 cb_response_url = args.url
+verify_tls = not args.no_verify_tls
 api_endpoint = f'{cb_response_url}/api/v1/watchlist'
 
 # Headers for API Request
@@ -47,7 +49,7 @@ for filename in os.listdir(watchlist_dir):
                 }
 
                 # POST request to create the watchlist
-                response = requests.post(api_endpoint, headers=headers, data=json.dumps(data))
+                response = requests.post(api_endpoint, headers=headers, data=json.dumps(data), verify=verify_tls)
 
                 # Check the response
                 if response.status_code == 200:
