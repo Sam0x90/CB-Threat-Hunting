@@ -51,10 +51,11 @@ Please don't hesitate to propose any additional queries and response actions for
 - [x] Define rule format
 - [x] Create a script to automate watchlist creation via API
 - [x] Document usage guide
-- [ ] Update old queries if needed
+- [ ] Update old detections content and format
+- [ ] Create a LiveQuery section [GH-1](https://github.com/Sam0x90/CB-Threat-Hunting/issues/1#issue-2044993130)
 - [ ] Create new content
 
-See the [open issues](https://github.com/0xAnalyst/DefenderATPQueries/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/Sam0x90/CB-Threat-Hunting/issues) for a full list of proposed features (and known issues).
 
 # Detection
 
