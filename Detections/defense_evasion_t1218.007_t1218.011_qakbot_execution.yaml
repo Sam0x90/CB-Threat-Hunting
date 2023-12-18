@@ -1,0 +1,7 @@
+name: Defense Evasion, T1218.007, T1218.011 Qakbot execution
+index_type: events
+description: Detects Qakbot execution flow of its variant from December 2023, see references.
+references: https://www.joesandbox.com/analysis/1363457/0/html, https://twitter.com/Max_Mal_/status/1736392741758611607, https://attack.mitre.org/software/S0650/, https://attack.mitre.org/techniques/T1218/007/, https://attack.mitre.org/techniques/T1218/011/
+tags: defense_evasion, t1218.007, t1218.011, qakbot, s0650
+search_query: (parent_name:*.tmp AND process_name:rundll32.exe) OR (cmdline:*HideWindow* AND cmdline:*rundll32*) OR cmdline:*KROST.dll* OR digsig_publisher:"SOFTWARE AGILITY LIMITED"
+on_hit: create_alert, log_to_syslog
