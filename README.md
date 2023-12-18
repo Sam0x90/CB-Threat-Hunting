@@ -52,6 +52,8 @@ Please don't hesitate to propose any additional queries and response actions for
 - [x] Create a script to automate watchlist creation via API
 - [x] Document usage guide
 - [ ] Update old detections content and format
+- [ ] Script to generate MITRE ATT&CK Navigator based on yaml watchlist
+- [ ] Update createWatchlist script to automatically tick action boxes in CB (email, alert, syslog)
 - [ ] Create a LiveQuery section [GH-1](https://github.com/Sam0x90/CB-Threat-Hunting/issues/1#issue-2044993130)
 - [ ] Create new content
 
