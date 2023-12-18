@@ -133,12 +133,12 @@ This field can be used to understand the maturity of the rule.
 
 ### Example
 
-[file_download_via_bitsadmin.yaml](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Detections/file_download_via_bitsadmin.yaml)
+[c2_defense_evasion_t1197_t1105_file_download_via_bitsadmin.yaml](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Detections/c2_defense_evasion_t1197_t1105_file_download_via_bitsadmin.yaml)
 ```
-name: File Download via Bitsadmin Usage
+name: C2, Defense Evasion T1197, T1105 File Download via Bitsadmin Usage
 index_type: events
 description: Detects the usage of the Windows built-in bitsadmin to download a file (especially with the transfer argument).
-references: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml
+references: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml, https://attack.mitre.org/techniques/T1197/, https://attack.mitre.org/techniques/T1105/
 tags: c2, defense_evasion, s0190, t1197, t1105
 search_query: process_name:"bitsadmin.exe" AND cmdline:"/transfer"
 on_hit: create_alert, log_to_syslog
