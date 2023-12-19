@@ -125,13 +125,13 @@ This is not an API argument and must be check manually (please open PR/Issue if 
 This represents the different checkbox that can be checked to define the notification action(s) to trigger when the query hits.
 
 Values:
-- email_me
-- create_alert
-- log_to_syslog
+- email
+- alert
+- syslog
 
 This field can be used to understand the maturity of the rule. 
-- If it contains **only** ```log_to_syslog```, this means the rule has to be fine tuned or it is meant to be a hunt
-- If it contains **at least** ```create_alert```, this mean that the rule has been tested in production environment and is not prone to (too much) false positives
+- If it contains **only** ```syslog```, this means the rule has to be fine tuned or it is meant to be a hunt
+- If it contains **at least** ```alert```, this mean that the rule has been tested in production environment and is not prone to (too much) false positives
 
 ### Example
 
@@ -143,7 +143,7 @@ description: Detects the usage of the Windows built-in bitsadmin to download a f
 references: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml, https://attack.mitre.org/techniques/T1197/, https://attack.mitre.org/techniques/T1105/
 tags: c2, t1105, defense_evasion, t1197, s1090
 search_query: process_name:"bitsadmin.exe" AND cmdline:"/transfer"
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog
 ```
 
 # LiveResponse
