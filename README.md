@@ -53,7 +53,7 @@ Please don't hesitate to propose any additional queries and response actions for
 - [x] Document usage guide
 - [ ] Update old detections content and format
 - [ ] Script to generate MITRE ATT&CK Navigator based on yaml watchlist
-- [ ] Update createWatchlist script to automatically tick action boxes in CB (email, alert, syslog)
+- [x] Update createWatchlist script to automatically tick action boxes in CB (email, alert, syslog)
 - [ ] Create a LiveQuery section [GH-1](https://github.com/Sam0x90/CB-Threat-Hunting/issues/1#issue-2044993130)
 - [ ] Create new content
 
@@ -121,15 +121,15 @@ String API argument when creating a watchlist.\
 This represents the query that will search into the index_type specified. 
 
 ### on_hit
-This is not an API argument and must be check manually (please open PR/Issue if you found out how to define through API).\
-This represents the different checkbox that can be checked to define the notification action(s) to trigger when the query hits.
+List API argument when creating the watchlist.\
+This represents the different checkbox that can be checked to define the action trigger to fire when the query hits.
 
 Values:
 - email
 - alert
 - syslog
 
-This field can be used to understand the maturity of the rule. 
+This field can also be used to understand the maturity of the rule. 
 - If it contains **only** ```syslog```, this means the rule has to be fine tuned or it is meant to be a hunt
 - If it contains **at least** ```alert```, this mean that the rule has been tested in production environment and is not prone to (too much) false positives
 
@@ -165,16 +165,18 @@ In CarbonBlack world, a detection is called a watchlist.\
 Once you've selected and downloaded the watchlists of your interest, place them all in a single folder.
 You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-Threat-Hunting/blob/master/Scripts/API/watchlist_create.py) to "bulk" create all the selected watchlists in your CB Response instance via API. 
 
-The script will concatenate the fields 'references', 'tags' and 'on_hit' into the 'description' field and call the ```/v1/watchlist``` API endpoint to create the watchlists selected.\
+The script will concatenate the fields 'references' and 'tags' into the 'description' field and call the ```/v1/watchlist``` API endpoint to create the watchlists selected.\
 You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
 
+Thanks to @mahmoudawni88, the script can now automatically leverage the ```on_hit``` field in order to check the action triggers of the watchlist (email, alert, syslog).\
 
-|<img width="472" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/3dd3acac-2652-4a21-b518-29398afc0878">|
+
+|<img width="471" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/cea2f719-7bf3-4061-b9ba-968504dcc4d7">|
 |:--:| 
 | *Script result for 2 yaml files* |
 
 
-|<img width="1263" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/2002d467-8db6-4537-9893-393a4565cbf5">|
+|<img width="1057" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/91ba1ba7-a853-44d5-a738-fb102c4f9420">|
 |:--:| 
 | *POST requests* |
 
