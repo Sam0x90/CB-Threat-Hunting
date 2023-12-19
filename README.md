@@ -181,9 +181,6 @@ Thanks to @mahmoudawni88, the script can now automatically leverage the ```on_hi
 | *POST requests* |
 
 
-> [!WARNING]  
-> Watchlist action type is not supported yet by the script but it is a good reason to validate newly created watchlist one by one.
-
 <!-- CONTRIBUTING -->
 # Contributing
 
