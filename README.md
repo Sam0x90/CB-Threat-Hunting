@@ -35,7 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
-Initially started by @0xAnalyst, I will try to update this repo with my humble contributions.\
+Initially started by [@0xAnalyst](https://github.com/0xAnalyst), I will try to update this repo with my humble contributions.\
 It is meant to provide security analysts a 'cheatsheet' or 'guideline' to be used alongside CarbonBlack Response
 
 This repository will contain mainly 2 things:
@@ -168,7 +168,7 @@ You can then use the script [watchlist_create.py](https://github.com/Sam0x90/CB-
 The script will concatenate the fields 'references' and 'tags' into the 'description' field and call the ```/v1/watchlist``` API endpoint to create the watchlists selected.\
 You can read about those fields in [Detection rule format](https://github.com/Sam0x90/CB-Threat-Hunting/tree/master?tab=readme-ov-file#detection-rule-format).
 
-Thanks to @mahmoudawni88, the script can now automatically leverage the ```on_hit``` field in order to check the action triggers of the watchlist (email, alert, syslog).\
+Thanks to [@mahmoudawni88](https://github.com/mahmoudawni88), the script can now automatically leverage the ```on_hit``` field in order to check the action triggers of the watchlist (email, alert, syslog).\
 
 
 |<img width="471" alt="image" src="https://github.com/Sam0x90/CB-Threat-Hunting/assets/13771868/cea2f719-7bf3-4061-b9ba-968504dcc4d7">|
@@ -180,6 +180,11 @@ Thanks to @mahmoudawni88, the script can now automatically leverage the ```on_hi
 |:--:| 
 | *POST requests* |
 
+<!-- ACKNOWLEDGMENTS -->
+# Acknowledgments
+
+* [@mahmoudawni88](https://github.com/mahmoudawni88)
+* [@0xAnalyst](https://github.com/0xAnalyst/CB-Threat-Hunting)
 
 <!-- CONTRIBUTING -->
 # Contributing
@@ -192,11 +197,6 @@ If you have a suggestion that would make this better, please fork the repo and c
 # License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<!-- ACKNOWLEDGMENTS -->
-# Acknowledgments
-
-* []() https://github.com/0xAnalyst/CB-Threat-Hunting
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
