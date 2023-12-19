@@ -4,4 +4,4 @@ description: Detects the execution of sc.exe being spawned by cmd.exe or powersh
 references: https://attack.mitre.org/techniques/T1569/002/
 tags: execution, t1569.002
 search_query: process_name:sc.exe AND (parent_name:cmd.exe OR parent_name:powershell.exe)
-on_hit: log_to_syslog
+on_hit: syslog

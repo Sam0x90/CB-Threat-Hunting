@@ -4,4 +4,4 @@ description: Detections potential audio capture via powershell cmdlet.
 references: https://attack.mitre.org/techniques/T1123/, https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_audio_capture.yml
 tags: collection, t1123
 search_query: CommandLine:*WindowsAudioDevice* OR CommandLine:*Toggle-AudioDevice* OR CommandLine:*Get-AudioDevice\ * OR CommandLine:*Set-AudioDevice\ * OR CommandLine:*Write-AudioDevice\ *
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

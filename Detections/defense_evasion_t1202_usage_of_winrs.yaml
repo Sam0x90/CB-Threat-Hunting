@@ -4,4 +4,4 @@ description: Detects the usage of winrs to bypass monitoring and restrictions on
 references: https://attack.mitre.org/techniques/T1202/
 tags: defense_evasion, t1202
 search_query: process_name:winrs.exe
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

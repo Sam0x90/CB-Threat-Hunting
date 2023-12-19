@@ -4,4 +4,4 @@ description: Detects usage of file permission modification utilities (takeown.ex
 references: https://attack.mitre.org/techniques/T1222/001/
 tags: defense_evasion, t1222.001
 search_query: (process_name:takeown.exe OR process_name:icacls.exe OR process_name:cacls.exe OR process_name:attrib.exe) AND -parent_name:iwrap.exe AND -cmdline:Adobe*
-on_hit: log_to_syslog
+on_hit: syslog

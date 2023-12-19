@@ -4,4 +4,4 @@ description: Detects the network communication to Github via process running fro
 references: https://attack.mitre.org/techniques/T1105/, https://attack.mitre.org/techniques/T1567/001/
 tags: c2, t1105, exfiltration, t1567.001
 search_query: domain:github.com AND path:C:\Windows\*
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

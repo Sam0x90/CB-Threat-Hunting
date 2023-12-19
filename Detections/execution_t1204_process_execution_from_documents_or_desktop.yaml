@@ -4,4 +4,4 @@ description: Detects the execution of a Windows process within the user document
 references: https://attack.mitre.org/techniques/T1204/
 tags: execution, t1204
 search_query: (path:documents\* OR path:desktop\*) AND os_type:"windows" AND -process_name:firefox.exe AND -process_name:chrome.exe
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

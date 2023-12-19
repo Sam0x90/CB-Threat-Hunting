@@ -4,4 +4,4 @@ description: Detects the creation of a remote thread by the powershell process, 
 references: https://attack.mitre.org/techniques/T1055/002/
 tags: defense_evasion, privilege_escalation, t1055.002
 search_query: (crossproc_type:"remotethread") and process_name:powershell.exe
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

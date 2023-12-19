@@ -4,4 +4,4 @@ description: Detects the usage of the utility sdbinst.exe that can set registry 
 references: https://attack.mitre.org/techniques/T1546/011/, https://www.fireeye.com/blog/threat-research/2017/05/fin7-shim-databases-persistence.html
 tags: privilege_escalation, persistence, t1546.011
 search_query: process_name:sdbinst.exe -parent_name:trustedinstaller.exe
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

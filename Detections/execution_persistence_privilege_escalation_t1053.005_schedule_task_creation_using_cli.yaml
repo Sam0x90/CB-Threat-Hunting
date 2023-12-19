@@ -4,4 +4,4 @@ description: Detects the creation of schedule tasks with the usage of schtasks.e
 references: https://attack.mitre.org/techniques/T1053/005/
 tags: execution, persistence, privilege_escalation, t1053.005
 search_query: process_name:schtasks.exe AND cmdline:*create* AND -username:"NT AUTHORITY\SYSTEM" OR (process_name:at.exe)
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

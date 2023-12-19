@@ -4,4 +4,4 @@ description: Detects the creation of a RAR archive using winrar utility with com
 references: https://attack.mitre.org/techniques/T1560/001/
 tags: collection, t1560.001
 search_query: (process_name:rar.exe OR process_name:winrar.exe) AND cmdline:a*
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

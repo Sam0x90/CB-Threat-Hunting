@@ -4,4 +4,4 @@ description: Detects the modification of the common persistent registry keys tha
 references: https://attack.mitre.org/techniques/T1547/001/
 tags: persistence, privilege_escalation, t1547.001
 search_query: cmdline:"Microsoft\\Windows\\CurrentVersion\\Run" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\RunOnce" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\Explorer\\User" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\Explorer\\Run"
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

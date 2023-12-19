@@ -4,4 +4,4 @@ description: Detects various actions performed by the Windows built-in Bitsadmin
 references: https://attack.mitre.org/techniques/T1197/
 tags: defense_evasion, persistence, s0190, t1197
 search_query: process_name:bitsadmin.exe and (cmdline:download or cmdline:transfer or cmdline:addfile)
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog

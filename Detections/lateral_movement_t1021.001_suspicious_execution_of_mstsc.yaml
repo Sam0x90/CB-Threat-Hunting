@@ -4,4 +4,4 @@ description: Detects the execution of the Microsoft Terminal Services Client fro
 references: https://attack.mitre.org/techniques/T1021/001/
 tags: lateral_movement, t1021.001
 search_query: process_name:mstsc.exe -parent_name:explorer.exe -parent_name:servermanager.exe
-on_hit: create_alert, log_to_syslog
+on_hit: alert, syslog
