@@ -29,6 +29,12 @@ get files.txt
 execfg powershell rm files.txt
 ```
 
+### Delete a file
+```delete <filename>```
+
+### Delete a folder and its content
+```execfg powershell remove-item -path <path> -recurse -confirm:$false```
+
 ### Download a file
 ```get <filename>```
 
