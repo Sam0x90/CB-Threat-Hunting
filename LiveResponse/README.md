@@ -145,6 +145,12 @@ To-do
 ### Query Event Log
 ```execfg powershell get-winevent -LogName 'Security' | where-object {$_.ID -eq 4688}```
 
+### Listing all schedule tasks
+```
+execfg powershell schtasks /query /fo LIST /v > scheduletasks.txt
+get scheduletasks.txt
+```
+
 ### Unix/Linux
 
 To-do
