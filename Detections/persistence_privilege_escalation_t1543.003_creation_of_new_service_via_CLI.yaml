@@ -1,0 +1,7 @@
+name: Persistence, Privilege Escalation, T1543.003 Creation of new service via CLI
+index_type: events
+description: Detects the creation of new service with the usage of sc.exe via cmd.exe or powershell.exe.
+references: https://attack.mitre.org/techniques/T1543/003/
+tags: persistence, privilege_escalation, t1543.003
+search_query: process_name:sc.exe AND (cmdline:create OR cmdline:delete OR cmdline:start) AND (parent_name:cmd.exe OR parent_name:powershell.exe)
+on_hit: alert, syslog
