@@ -35,6 +35,9 @@ execfg powershell rm files.txt
 ### Delete a folder and its content
 ```execfg powershell remove-item -path <path> -recurse -confirm:$false```
 
+### Delete/Remove schedule task
+```execfg schtasks /delete /tn <task_name>```
+
 ### Download a file
 ```get <filename>```
 
@@ -50,10 +53,6 @@ Format-List will avoid having truncated filepath in the output
 
 ### Unzip a file
 ```execfg powershell expand-archive tool.zip```
-
-### Execute a script/tool
-After uploading using ```put```, run the following:
-```execfg .\tool.exe```
 
 ### Search for string pattern recursively
 ```execfg findstr /s /i "<pattern>" *```
@@ -113,6 +112,17 @@ To-do
 # Process 
 
 ## Windows
+
+### Kill a process
+```kill <process_id>```
+
+### Execute a script/tool
+After uploading using ```put```, run the following:
+```execfg .\tool.exe```
+
+Alternatively, use ```exec``` to execute a process in the background without waiting for stdout/stderr.
+For example, you can run Thor scanner on the endpoint. 
+```exec thor64.exe```
 
 ## Unix/Linux
 
