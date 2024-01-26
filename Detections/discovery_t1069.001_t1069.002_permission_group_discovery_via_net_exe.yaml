@@ -1,0 +1,7 @@
+name: Discovery, T1069.001, T1069.002 Permission group discovery via net.exe
+index_type: events
+description: Detects reconnaissance activity on users and groups via the utility net.exe
+references: https://attack.mitre.org/techniques/T1069/001/, https://attack.mitre.org/techniques/T1069/002/
+tags: discovery, t1069.001, t1069.002
+search_query: (process_name:net.exe AND cmdline:group AND cmdline:*domain admins*) OR (process_name:net.exe AND cmdline:localgroup AND cmdline:*administrators*)
+on_hit: alert, syslog

@@ -2,6 +2,6 @@ name: C2, T1105 File download via certutil
 index_type: events
 description: Detects a potential C2 communication to download files via certutil urlcache or verifyctl.
 references: https://attack.mitre.org/techniques/T1105/, https://attack.mitre.org/software/S0160/
-tags: c2, t1105
+tags: c2, t1105, s0160
 search_query: process_name:certutil.exe AND (cmdline:"urlcache" OR cmdline"verifyctl")
 on_hit: alert, syslog
