@@ -1,5 +1,7 @@
-# T1105 - Ingress Tool Transfer
-
-### Search Query for certutil download (urlcache) or (verifyctl)
-
-` certutil.exe cmdline:"-urlcache" or cmdline"-verifyctl" ` 
+name: C2, T1105 Certutil download
+index_type: events
+description: Detects a potential C2 communication to download files via certutil urlcache or verifyctl.
+references: https://attack.mitre.org/techniques/T1105/, https://attack.mitre.org/software/S0160/
+tags: c2, t1105
+search_query: process_name:certutil.exe AND (cmdline:"urlcache" OR cmdline"verifyctl")
+on_hit: alert, syslog
