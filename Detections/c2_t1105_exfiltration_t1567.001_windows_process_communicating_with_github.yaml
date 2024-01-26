@@ -1,7 +1,0 @@
-name: C2, T1105, Exfiltration, T1567.001 Windows process communicating with github
-index_type: events
-description: Detects the network communication to Github via process running from the Windows directory likely indicating ingress tool transfer or exfiltration.
-references: https://attack.mitre.org/techniques/T1105/, https://attack.mitre.org/techniques/T1567/001/
-tags: c2, t1105, exfiltration, t1567.001
-search_query: domain:github.com AND path:C:\Windows\*
-on_hit: alert, syslog

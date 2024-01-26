@@ -1,0 +1,7 @@
+name: Defense Evasion, T1140, C2, T1132.001 Suspcious CertUtil execution
+index_type: events
+description: Detects suspicious command line of process certutil to detect decoding or encoding activities to either bypass defenses or for exfiltration purpose.
+references: https://attack.mitre.org/techniques/T1140/, https://attack.mitre.org/techniques/T1132/001/
+tags: defense_evasion, t1140, c2, t1132.001, s0160
+search_query: process_name:certutil.exe AND (cmdline:encode* OR cmdline:decode* OR cmdline:-verify OR cmdline:-decodehex)
+on_hit: alert, syslog

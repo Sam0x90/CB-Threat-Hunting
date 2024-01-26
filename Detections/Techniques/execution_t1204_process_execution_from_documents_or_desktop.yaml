@@ -1,0 +1,7 @@
+name: Execution, T1204 Process execution from Documents or Desktop
+index_type: events
+description: Detects the execution of a Windows process within the user documents or desktop folder
+references: https://attack.mitre.org/techniques/T1204/
+tags: execution, t1204
+search_query: (path:documents\* OR path:desktop\*) AND os_type:"windows" AND -process_name:firefox.exe AND -process_name:chrome.exe
+on_hit: alert, syslog

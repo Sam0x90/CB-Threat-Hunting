@@ -1,0 +1,7 @@
+name: Impact, T1490 Deletion of shadowcopy via vssadmin or wmic
+index_type: events
+description: Detects the deletion of windows shadowcopy via the vssadmin utility or via WMI.
+references: https://attack.mitre.org/techniques/T1490/
+tags: impact, t1490
+search_query: (process_name:vssadmin.exe AND cmdline:delete*) OR (process_name:wmic.exe AND cmdline:shadowcopy*)
+on_hit: alert, syslog

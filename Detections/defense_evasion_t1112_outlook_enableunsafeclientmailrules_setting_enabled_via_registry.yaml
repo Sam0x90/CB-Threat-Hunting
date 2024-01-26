@@ -1,7 +1,0 @@
-name: Defense Evasion T1112 Outlook EnableUnsafeClientMailRules setting enabled via registry
-index_type: events
-description: Detects the modification of the registry key EnableUnsafeClientMailRules that allows outlook to execute application or macro.
-references: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/registry/registry_set/registry_set_office_outlook_enable_unsafe_client_mail_rules.yml, https://attack.mitre.org/techniques/T1112/
-tags: defense_evasion, t1112
-search_query: regmod:Outlook\Security\EnableUnsafeClientMailRules
-on_hit: alert, syslog

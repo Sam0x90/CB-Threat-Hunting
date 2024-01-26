@@ -1,0 +1,7 @@
+name: Persistence, T1505.003, Discovery, T1082 Webshell detection via commands executed from web server process
+index_type: events
+description: Detects webshell activities via the suspicious commands executed from web server processes.
+references: https://attack.mitre.org/techniques/T1505/003/, https://attack.mitre.org/techniques/T1082/
+tags: persistence, t1505.003, discovery, t1082
+search_query: (parent_name:w3wp.exe OR parent_name:httpd.exe or parent_name:nginx.exe OR parent_name:php-cgi.exe OR parent_name:*apache* OR parent_name:*tomcat*) AND (process_name:whoami.exe OR cmdline:"ping -n" OR cmdline:"net user" OR process_name:systeminfo.exe OR process_name:cmd.exe OR process_name:sh.exe OR process_name:powershell.exe OR process_name:bash.exe)
+on_hit: alert, syslog

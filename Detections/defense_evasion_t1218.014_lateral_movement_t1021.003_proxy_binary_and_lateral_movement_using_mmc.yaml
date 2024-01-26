@@ -1,7 +1,0 @@
-name: Defense Evasion, T1218.014, Lateral Movement T1021.003 Proxy binary and lateral movement using mmc
-index_type: events
-description: Detects the usage of mmc to spawn processes in order to bypass defenses. It can also be used to move lateral by leveraging the remote service DCOM via RPC.
-references: https://attack.mitre.org/techniques/T1218/014/, https://attack.mitre.org/techniques/T1021/003/, https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mmc_susp_child_process.yml
-tags: defense_evasion, t1218.014, lateral_movement, t1021.003
-search_query: parent_name:mmc.exe AND (process_name:cmd.exe OR process_name:powershell.exe OR process_name:pwsh.exe OR process_name:wscript.exe OR process_name:cscript.exe OR process_name:sh.exe OR process_name:bash.exe OR process_name:reg.exe OR process_name:regsvr32.exe)
-on_hit: alert, syslog

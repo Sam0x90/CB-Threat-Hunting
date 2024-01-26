@@ -1,0 +1,7 @@
+name: Defense Evasion T1202 Usage of winrs
+index_type: events
+description: Detects the usage of winrs to bypass monitoring and restrictions on CLI
+references: https://attack.mitre.org/techniques/T1202/
+tags: defense_evasion, t1202
+search_query: process_name:winrs.exe
+on_hit: alert, syslog

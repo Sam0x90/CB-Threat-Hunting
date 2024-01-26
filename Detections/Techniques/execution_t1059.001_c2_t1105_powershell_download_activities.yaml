@@ -1,0 +1,7 @@
+name: Execution, T1059.001, C2, T1105 Powershell download activities
+index_type: events
+description: Detects potential file download activities via PowerShell
+references: https://attack.mitre.org/techniques/T1059/001/, https://attack.mitre.org/techniques/T1105/
+tags: execution, t1059.001, c2, t1105
+search_query: process_name:powershell.exe AND (cmdline:"Invoke-WebRequest" OR cmdline:"Start-BitsTransfer" OR cmdline:"System.Net.WebClient" OR cmdline:"System.Net.Http.HttpClient" OR cmdline:"Invoke-Expression" OR cmdline:"IEX" OR cmdline:"[System.Reflection.Assembly]::Load" OR cmdline:"curl" OR cmdline:"wget" OR cmdline:"DownloadFile" OR cmdline:"DownloadData" OR cmdline:"DownloadString")
+on_hit: alert, syslog

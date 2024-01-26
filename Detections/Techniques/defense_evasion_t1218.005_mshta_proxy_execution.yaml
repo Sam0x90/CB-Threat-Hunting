@@ -1,0 +1,7 @@
+name: Defense Evasion, T1218.005 MSHTA proxy execution
+index_type: events
+description: Detects the usage of mshta to proxy the execution of javascript or vbscript files. 
+references: https://attack.mitre.org/techniques/T1218/005/, https://s7d2.scene7.com/is/content/cylance/prod/cylance-web/en-us/resources/knowledge-center/resource-library/reports/Op_Dust_Storm_Report.pdf
+tags: defense_evasion, t1218.005
+search_query: process_name:mshta.exe AND (cmdline:javascript* OR cmdline:vbscript*)
+on_hit: alert, syslog

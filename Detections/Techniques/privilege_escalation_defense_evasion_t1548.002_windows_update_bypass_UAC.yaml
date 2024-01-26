@@ -1,0 +1,7 @@
+name: Privilege Escalation, Defense Evasion T1548.002 UAC bypass using wusa.exe
+index_type: events
+description: Detects the usage of wusa.exe in order to bypass UAC. This utility was also used to extract CAB file(s) downloaded by malware.
+references: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wusa_cab_files_extraction.yml, https://attack.mitre.org/techniques/T1548/002/
+tags: privilege_escalation, defense_evasion, t1548.002
+search_query: process_name:wusa.exe AND (cmdline:/extract OR cmdline:/quiet)
+on_hit: alert, syslog

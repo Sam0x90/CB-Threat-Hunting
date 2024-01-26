@@ -1,7 +1,0 @@
-name: Lateral Movement, T1563.002 tscon RDP session hijacking
-index_type: events
-description: Detects the hijacking of RDP session using the tscon utility.
-references: https://attack.mitre.org/techniques/T1563/002/
-tags: lateral_movement, t1563.002
-search_query: process_name:tscon.exe
-on_hit: alert, syslog

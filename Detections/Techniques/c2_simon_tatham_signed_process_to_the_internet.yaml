@@ -1,0 +1,7 @@
+name: C2 Simon Tatham tools reaching the internet
+index_type: events
+description: Detects the usage of tools signed by Simon Tatham such as putty.exe that reaches the internet.
+references: n/a
+tags: c2
+search_query: digsig_publisher:"Simon Tatham" AND (ipaddr:[0.0.0.0 TO 9.255.255.255] OR ipaddr:[11.0.0.0 TO 126.255.255.255] OR ipaddr:[128.0.0.0 TO 172.15.255.255] OR ipaddr:[172.32.0.0 TO 192.167.255.255] OR ipaddr:[192.169.0.0 TO 223.255.255.255])
+on_hit: alert, syslog

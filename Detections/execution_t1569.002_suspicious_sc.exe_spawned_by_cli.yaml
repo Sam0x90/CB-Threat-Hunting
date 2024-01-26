@@ -1,7 +1,0 @@
-name: Execution T1569.002 Suspcious sc.exe spawned by CLI
-index_type: events
-description: Detects the execution of sc.exe being spawned by cmd.exe or powershell.exe.
-references: https://attack.mitre.org/techniques/T1569/002/
-tags: execution, t1569.002
-search_query: process_name:sc.exe AND (parent_name:cmd.exe OR parent_name:powershell.exe)
-on_hit: syslog

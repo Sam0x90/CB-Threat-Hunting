@@ -1,7 +1,0 @@
-name: Defense Evasion, T1222.001 File permissions modification
-index_type: events
-description: Detects usage of file permission modification utilities (takeown.exe, icacls.exe, cacls.exe, attrib.exe). Might be noisy and needs fine tuning.
-references: https://attack.mitre.org/techniques/T1222/001/
-tags: defense_evasion, t1222.001
-search_query: (process_name:takeown.exe OR process_name:icacls.exe OR process_name:cacls.exe OR process_name:attrib.exe) AND -parent_name:iwrap.exe AND -cmdline:Adobe*
-on_hit: syslog

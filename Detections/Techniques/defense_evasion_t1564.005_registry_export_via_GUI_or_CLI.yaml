@@ -1,0 +1,7 @@
+name: Defense Evasion T1564.005 Registry export via GUI or CLI utility
+index_type: events
+description: Detects the export of a registry key. This has been observed to export and hide registry data into ADS.
+references: https://lolbas-project.github.io/lolbas/Binaries/Regedit/, https://attack.mitre.org/techniques/T1564/005/
+tags: defense_evasion, t1564.005
+search_query: (process_name:reg.exe AND cmdline:"export") OR (process_name:regedit.exe AND (cmdline:"-E" OR cmdline:"/E"))
+on_hit: alert, syslog
