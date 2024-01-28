@@ -1,0 +1,7 @@
+name: Defense Evasion, T1218.011 - Suspicious parent process of rundll32
+index_type: events
+description: Detects the execution of rundll32.exe via suspicious parent process.
+references: https://redcanary.com/threat-detection-report/techniques/rundll32/, https://attack.mitre.org/techniques/T1218/011/
+tags: defense_evasion, t1218.011
+search_query: (parent_name:"winword.exe" OR parent_name:"excel.exe" OR parent_name:"msaccess.exe" OR parent_name:"lsass.exe" OR parent_name:"taskeng.exe" OR parent_name:"winlogon.exe" OR parent_name:"schtask.exe" OR parent_name:"regsvr32.exe" OR parent_name:"wmiprvse.exe" OR parent_name:"wsmprovhost.exe") AND process_name:rundll32.exe
+on_hit: alert, syslog
