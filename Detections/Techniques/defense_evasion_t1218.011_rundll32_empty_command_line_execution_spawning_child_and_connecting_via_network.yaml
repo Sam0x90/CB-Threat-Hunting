@@ -1,7 +1,7 @@
 name: Defense Evasion, T1218.011 - RunDll32 empty command line execution spawning child and connecting via network
 index_type: events
-description: Detects the suspicious execution of rundll32.exe without command line and child process(es) and network connection(s).
+description: Detects the suspicious execution of rundll32.exe without command line and child process(es) and network connection(s). Not for production as there is currently no way of doing exact match in cmdline. 
 references: https://attack.mitre.org/techniques/T1218/011/
 tags: defense_evasion, t1218.011
-search_query: process_name:rundll32.exe AND cmdline:rundll32.exe AND childproc_count:* AND netconn_count:*
-on_hit: alert, syslog
+search_query: process_name:rundll32.exe AND cmdline:rundll32.exe AND childproc_count:[1 TO *] AND netconn_count:[1 TO *]
+on_hit: syslog
