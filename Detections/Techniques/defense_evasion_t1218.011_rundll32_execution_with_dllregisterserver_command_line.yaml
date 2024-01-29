@@ -3,5 +3,5 @@ index_type: events
 description: Detects execution of rundll32 with command line specifying DLLRegisterServer even though rundll32 is expecting to execute this function by default. It's a rare scenario that was observed with Qakbot, Ursnif, and Zloader among others. 
 references: https://redcanary.com/threat-detection-report/techniques/rundll32/, https://attack.mitre.org/techniques/T1218/011/
 tags: defense_evasion, t1218.011
-search_query: process_name:rundll32.exe AND cmdline:*dllregisterserver*
+search_query: process_name:rundll32.exe AND cmdline:dllregisterserver*
 on_hit: alert, syslog
