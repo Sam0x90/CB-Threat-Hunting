@@ -1,7 +1,7 @@
 name: Defense Evasion, Privilege Escalation, T1055 - Common injected process with empty command line
 index_type: events
-description: Detects the suspicious execution of common processes without command line, which are not supposed to have empty command line. This likely indicates the occurence of process injection. 
+description: Detects the suspicious execution of common processes without command line, which are not supposed to have empty command line. This likely indicates the occurence of process injection. Exact match not possible in cmdline,therefore detection must be used for hunting. 
 references: https://redcanary.com/threat-detection-report/techniques/process-injection/, https://attack.mitre.org/techniques/T1055/
 tags: defense_evasion, privilege_escalation, t1055
 search_query: (process_name:backgroundtaskhost.exe and cmdline:backgroundtaskhost.exe) OR (process_name:svchost.exe and cmdline:svchost.exe) OR (process_name:dllhost.exe and cmdline:dllhost.exe) OR (process_name:werfault.exe and cmdline:werfault.exe) OR (process_name:searchprotocolhost.exe and cmdline:searchprotocolhost.exe) OR (process_name:wuauclt.exe and cmdline:wuauclt.exe) OR (process_name:spoolsv.exe and cmdline:spoolsv.exe) OR (process_name:rundll32.exe and cmdline:rundll32.exe) OR (process_name:regasm.exe and cmdline:regasm.exe) OR (process_name:regsvr32.exe and cmdline:regsvr32.exe) OR (process_name:regsvcs.exe and cmdline:regsvcs.exe)
-on_hit: alert, syslog
+on_hit: syslog
