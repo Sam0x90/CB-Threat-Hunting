@@ -1,0 +1,7 @@
+name: Defense Evasion, T1564.002 Hiding local user accounts
+index_type: events
+description: Detects the use reg.exe to hide users from listed in the logon screen. This is possible by changing the registry key value to 0 for a specific user.
+references: https://github.com/The-DFIR-Report/Sigma-Rules/blob/main/rules/windows/process_creation/proc_creation_win_hiding_local_user_accounts.yml, https://attack.mitre.org/techniques/T1564/002/
+tags: defense_evasion, t1564.002
+search_query: os_type:windows AND (parent_name:cmd.exe OR parent_name:powershell.exe) AND process_name:reg.exe AND  (cmdline:"HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\Userlist" AND cmdline:add cmdline:"/t" AND cmdline:REG_DWORD AND cmdline:"/v" AND cmdline:"/d 0")
+on_hit: alert, syslog
