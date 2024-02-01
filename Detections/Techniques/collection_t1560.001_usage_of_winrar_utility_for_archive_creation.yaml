@@ -3,5 +3,5 @@ index_type: events
 description: Detects the creation of a RAR archive using winrar utility with command-line arguments starting with "a", indicating the addition of files to an archive.
 references: https://attack.mitre.org/techniques/T1560/001/
 tags: collection, t1560.001
-search_query: (process_name:rar.exe OR process_name:winrar.exe) AND cmdline:a*
+search_query: (process_name:rar.exe OR process_name:winrar.exe) AND cmdline:" a "
 on_hit: alert, syslog
