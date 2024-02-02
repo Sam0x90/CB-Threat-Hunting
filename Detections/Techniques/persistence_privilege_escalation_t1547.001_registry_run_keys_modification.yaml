@@ -3,5 +3,5 @@ index_type: events
 description: Detects the modification of the common persistent registry keys that can be used for persistence or privilege escalation purpose.
 references: https://attack.mitre.org/techniques/T1547/001/
 tags: persistence, privilege_escalation, t1547.001
-search_query: cmdline:"Microsoft\\Windows\\CurrentVersion\\Run" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\RunOnce" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\Explorer\\User" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\Explorer\\Run"
+search_query: cmdline:"Microsoft\\Windows\\CurrentVersion\\Run" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\RunOnce" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\Explorer\\User" OR cmdline:"Microsoft\\Windows\\CurrentVersion\\Explorer\\Run" AND -(process_name:reg.exe AND cmdline:query)
 on_hit: alert, syslog
