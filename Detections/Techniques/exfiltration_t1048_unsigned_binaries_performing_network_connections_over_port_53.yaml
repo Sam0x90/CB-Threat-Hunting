@@ -1,0 +1,7 @@
+name: Exfiltration, T1048 - Unsigned binaries performing network connections over port 53. 
+index_type: events
+description: Detects unsigned binaries performing network connections over port 53. These connections can highlight a ptoential exfiltration attempts through DNS. Could potentially be improved by specifically targeting digsig_result:"Unsigned" instead.
+references: https://attack.mitre.org/techniques/T1048/
+tags: exfiltration, t1048
+search_query: os_type:windows AND netconn_count:[1 TO *] AND ipport:53 AND -digsig_result:"Signed"
+on_hit: alert, syslog

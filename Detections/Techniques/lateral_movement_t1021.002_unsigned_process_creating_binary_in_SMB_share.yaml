@@ -1,0 +1,7 @@
+name: Lateral Movement, T1021.002 - Unsigned process creating binary in SMB share
+index_type: events
+description: Detects the creation of executable in an admin SMB share by an unsigned process, typical behavior that can occur during lateral movement. 
+references: https://attack.mitre.org/techniques/T1021/002/
+tags: lateral_movement, t1021.002
+search_query: os_type:windows AND (path:admin$ OR path:c$) AND filename:\*.exe AND digsig_result:"Unsigned" 
+on_hit: alert, syslog
