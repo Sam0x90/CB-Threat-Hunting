@@ -1,0 +1,7 @@
+name: Execution, T1059.003 - Registry modification MaxMpxCt to optimize file sharing network connectivity
+index_type: events
+description: Detects the modification of registry key MaxMpxCt, which modify the outstanding network SMB requests for the server per client, hence improving file sharing connectivty.
+references: https://www.huntress.com/blog/blackcat-ransomware-affiliate-ttps
+tags: execution, t1059.003
+search_query: (regmod:registry\machine\system\currentcontrolset\services\lanmanserver\parameters* AND cmdline:maxmpxct) OR (regmod:registry\machine\system\currentcontrolset\services\lanmanserver\parameters\maxmpxct) 
+on_hit: alert, syslog
