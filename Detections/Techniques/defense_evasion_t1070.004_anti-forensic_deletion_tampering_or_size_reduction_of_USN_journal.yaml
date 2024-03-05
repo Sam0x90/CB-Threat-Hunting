@@ -1,0 +1,7 @@
+name: Defense Evasion, T1070.004 - Anti-forensic deletion, tampering or size reduction of USN Journal
+index_type: events
+description:  Detects the deletion, tampering or size reduction of the USN Journal with the utility fsutil.exe, which might indicate an anti-forensic activity to slow down analysis.
+references: https://attack.mitre.org/techniques/T1112/, https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_fsutil_usage.yml
+tags: defense_evasion, t1074.004
+search_query: os_type:windows AND (process_name:fsutil.exe OR original_filename:fsutil.exe) AND (cmdline:deletejournal OR cmdline:createjournal OR cmdline:setZeroData)
+on_hit: alert, syslog
