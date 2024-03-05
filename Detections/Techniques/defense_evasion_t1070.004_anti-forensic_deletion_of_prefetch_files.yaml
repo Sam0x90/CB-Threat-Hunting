@@ -1,0 +1,7 @@
+name: Defense Evasion, T1070.003 - Anti-forensic deletion of prefetch files
+index_type: events
+description:  Detects the deletion of prefetch files, which might indicate an anti-forensic action to slow down post-breach analysis.
+references: https://attack.mitre.org/techniques/T1070/004/
+tags: defense_evasion, t1070.004
+search_query: os_type:windows (filemod:":\Windows\Prefetch\*" AND filemod:.pf) AND -process_name:":\windows\system32\svchost.exe" AND -username:AUTHORI* AND -username:AUTORI*
+on_hit: alert, syslog
