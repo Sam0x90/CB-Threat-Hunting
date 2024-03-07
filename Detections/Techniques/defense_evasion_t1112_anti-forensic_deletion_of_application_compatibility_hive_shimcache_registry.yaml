@@ -3,5 +3,5 @@ index_type: events
 description:  Detects the shimcache flush which might indicate an anti-forensic action to slown down analysis.
 references: https://attack.mitre.org/techniques/T1112/, https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_rundll32_susp_shimcache_flush.yml
 tags: defense_evasion, t1112
-search_query: os_type:windows ((process_name:rundll32.exe AND cmdline:apphelp.dll) AND (cmdline:ShimFlushCache OR cmdline:"#250")) OR ((process_name:rundll32.exe AND cmdline:kernel32.dll) AND (cmdline:BaseFlushAppcompatCache OR cmdline:"#46"))
+search_query: os_type:windows AND ((process_name:rundll32.exe AND cmdline:apphelp.dll) AND (cmdline:ShimFlushCache OR cmdline:"#250")) OR ((process_name:rundll32.exe AND cmdline:kernel32.dll) AND (cmdline:BaseFlushAppcompatCache OR cmdline:"#46"))
 on_hit: alert, syslog
