@@ -3,5 +3,5 @@ index_type: events
 description:  Detects the deletion of prefetch files, which might indicate an anti-forensic action to slow down post-breach analysis.
 references: https://attack.mitre.org/techniques/T1070/004/, https://github.com/SigmaHQ/sigma/blob/master/rules/windows/file/file_delete/file_delete_win_delete_prefetch.yml
 tags: defense_evasion, t1070.004
-search_query: os_type:windows (filemod:":\Windows\Prefetch\*" AND filemod:.pf) AND -process_name:":\windows\system32\svchost.exe" AND -username:AUTHORI* AND -username:AUTORI*
+search_query: os_type:windows AND filemod:\Windows\Prefetch\*.pf AND -(process_name:svchost.exe AND path:"c:\windows\system32\svchost.exe")
 on_hit: alert, syslog
