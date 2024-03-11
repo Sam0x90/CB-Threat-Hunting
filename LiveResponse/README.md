@@ -26,7 +26,7 @@ To-do
 ```
 execfg powershell tree c:\ /F > files.txt
 get files.txt
-execfg powershell rm files.txt
+delete files.txt
 ```
 
 ### Delete a file
