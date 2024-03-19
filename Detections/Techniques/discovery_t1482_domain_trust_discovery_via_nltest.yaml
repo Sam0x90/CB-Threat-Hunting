@@ -3,8 +3,8 @@ index_type: events
 description: Detects the usage of nltest which is Windows utility to list domain controllers and enumerate domain trusts. It has been observed being used by various threat actors and malwares such as SocGholish. This type of behavior is often a precursor to ransomware activity.
 references: 
     - https://redcanary.com/threat-detection-report/threats/socgholish/
-	- https://attack.mitre.org/techniques/T1482/
-	- https://attack.mitre.org/software/S0359/
+    - https://attack.mitre.org/techniques/T1482/
+    - https://attack.mitre.org/software/S0359/
 tags: s0359, discovery, t1482
 search_query: process_name:nltest.exe AND (cmdline:"/domain_trusts" OR cmdline:"/all_trusts")
 on_hit: alert, syslog
