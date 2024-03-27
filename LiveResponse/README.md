@@ -64,10 +64,10 @@ Format-List will avoid having truncated filepath in the output
 ```hexdump <filename>```
 
 ### Get Alternate Data Stream of a file (MotW)
-```execfg powershell get-item target.file -stream *```
+```execfg powershell get-item .\target.file -stream *```
 
 ### Display ADS content (MotW)
-```execfg powershell get-content target.file:Zone.Identifier```
+```execfg powershell get-content .\target.file:Zone.Identifier```
 
 ## Unix/Linux
 
