@@ -1,0 +1,10 @@
+name: Privilege Escalation, Defense Evasion, T1134 - Cobalt Strike and other C2 GetSystem command
+index_type: events
+description: Detects the a commonly observed command-line patterns when C2 like Cobalt Strike, Meterpreter and other beacons escalate privileges via the GetSystem feature. Adversaries use GetSystem to impersonate a token for the SYSTEM account. Avoiding dollar sign in search because of weird results.
+references: 
+    - https://redcanary.com/blog/getsystem-offsec/
+    - https://redcanary.com/threat-detection-report/threats/cobalt-strike/
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/builtin/system/service_control_manager/win_system_meterpreter_or_cobaltstrike_getsystem_service_installation.yml
+tags: privilege_escalation, defense_evasion, T1134
+search_query: (process_name:cmd.exe AND cmdline:\\\\\.\\pipe\\ AND cmdline:echo) OR (process_name:rundll32.exe AND cmdline:\.dll,a AND cmdline:/p) OR cmdline:\\\\127.0.0.1\\ADMIN
+on_hit: alert, syslog
