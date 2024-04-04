@@ -160,6 +160,7 @@ To-do
 
 ### Query Event Log
 ```execfg powershell get-winevent -LogName 'Security' | where-object {$_.ID -eq 4688}```
+```execfg powershell get-winevent -LogName 'Security' | where-object {$_.ID -eq 4624} | Sort-Object TimeGenerated -descending | Select-Object -first 3 | fl```
 
 ### Listing all schedule tasks
 ```
