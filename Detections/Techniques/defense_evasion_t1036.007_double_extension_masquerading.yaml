@@ -1,0 +1,10 @@
+name: Defense Evasion, T1036.007 - Double extension masquerading
+index_type: events
+description: Detects the typical double extensions used to trick user into clicking on an executable to run it. 
+references:
+    - https://intelligence.any.run/
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_double_extension.yml
+    - https://attack.mitre.org/techniques/T1036/007/
+tags: defense_evasion, t1036.007
+search_query: os_type:windows AND ((process_name:*.doc.exe OR process_name:*.docx.exe OR process_name:*.xls.exe OR process_name:*.xlsx.exe OR process_name:*.ppt.exe OR process_name:*.pptx.exe OR process_name:*.rtf.exe OR process_name:*.pdf.exe OR process_name:*.txt.exe OR process_name:*\ \ \ \ \ \ .exe OR process_name:*______.exe OR process_name:*.doc.js OR process_name:*.docx.js OR process_name:*.xls.js OR process_name:*.xlsx.js OR process_name:*.ppt.js OR process_name:*.pptx.js OR process_name:*.rtf.js OR process_name:*.pdf.js OR process_name:*.txt.js) OR (cmdline:*.doc.exe OR cmdline:*.docx.exe OR cmdline:*.xls.exe OR cmdline:*.xlsx.exe OR cmdline:*.ppt.exe OR cmdline:*.pptx.exe OR cmdline:*.rtf.exe OR cmdline:*.pdf.exe OR cmdline:*.txt.exe OR cmdline:*\ \ \ \ \ \ .exe OR cmdline:*______.exe OR cmdline:*.doc.js OR cmdline:*.docx.js OR cmdline:*.xls.js* OR cmdline:*.xlsx.js OR cmdline:*.ppt.js OR cmdline:*.pptx.js OR cmdline:*.rtf.js OR cmdline:*.pdf.js OR cmdline:*.txt.js))
+on_hit: alert, syslog
