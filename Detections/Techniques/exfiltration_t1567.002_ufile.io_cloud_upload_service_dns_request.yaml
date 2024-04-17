@@ -1,0 +1,9 @@
+name: Exfiltration, T1567.002 - Ufile.io cloud upload service DNS request
+index_type: events
+description: Detects DNS queries for subdomains used for upload to ufile.io. Observed in a Diavol Ransowmare case.
+references:
+    - https://thedfirreport.com/2021/12/13/diavol-ransomware/
+    - https://attack.mitre.org/techniques/T1567/002/
+tags: exfiltration, t1567.002
+search_query: domain:ufile.io
+on_hit: alert, syslog
