@@ -1,0 +1,9 @@
+name: Defense Evasion, t1218.005 - MSHTA writing to world writable path
+index_type: events
+description: Detects instances of the Windows utility mshta.exe being used to write files to world-writable directories, a technique commonly leveraged by adversaries to execute malicious scripts or payloads. Observed on 26th of February 2024 by APT29 (wineloader)
+references:
+    - https://www.splunk.com/en_us/blog/security/wineloader-analysis.html
+    - https://attack.mitre.org/techniques/T1218/005/
+tags: defense_evasion, t1218.005
+search_query: process_name:mshta.exe AND (filemod:windows/tasks/* OR filemod:windows/temp/* OR filemod:windows/tracing/* OR filemod:windows/pla/reports/* OR filemod:windows/pla/rules/* OR filemod:windows/pla/templates/* OR filemod:windows/pla/reports/en-us/* OR filemod:windows/pla/rules/en-us/* OR filemod:windows/registration/crmlog/* OR filemod:windows/system32/tasks/* OR filemod:windows/system32/com/dmp/* OR filemod:windows/system32/logfiles/wmi/* OR filemod:windows/system32/microsoft/crypto/rsa/machinekeys/* OR filemod:windows/system32/spool/printers/* OR filemod:windows/system32/spool/servers/* OR filemod:windows/system32/spool/drivers/color/* OR filemod:windows/system32/tasks/microsoft/windows/remoteapp\ and\ desktop\ connections\ update/* OR filemod:windows/syswow64/tasks/* OR filemod:windows/syswow64/com/dmp/* OR filemod:windows/syswow64/tasks/microsoft/windows/pla/* OR filemod:windows/syswow64/tasks/microsoft/windows/remoteapp\ and\ desktop\ connections\ update/* OR filemod:windows/syswow64/tasks/microsoft/windows/pla/system/*)
+on_hit: alert, syslog

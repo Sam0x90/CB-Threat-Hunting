@@ -1,0 +1,10 @@
+name: Defense Evasion, Persistence, Privilege Escalation, T1574.001, T1574.002 - Potential DLL sideloading of libcurl.dll via GUP utility
+index_type: events
+description: Detects potential DLL sideloading of "libcurl.dll" by the "gup.exe" process from an uncommon location
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_gup_libcurl.yml
+    - https://attack.mitre.org/techniques/T1574/001/
+    - https://attack.mitre.org/techniques/T1574/002/
+tags: defense_evasion, persistence, privilege_escalation, t1574.001, t1574.002
+search_query: os_type:windows AND process_name:gup.exe AND modload:libcurl.dll AND -path:notepad++/updater/gup.exe
+on_hit: alert, syslog

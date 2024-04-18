@@ -1,0 +1,9 @@
+name: Defense Evasion, Persistence, Privilege Escalation, T1574.002 - Suspicious GUP usage DLL sideloading
+index_type: events
+description: Detects execution of the Notepad++ updater in a suspicious directory, which is often used in DLL side-loading attacks.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_gup_suspicious_execution.yml
+    - https://attack.mitre.org/techniques/T1574/002/
+tags: defense_evasion, persistence, privilege_escalation, t1574.002
+search_query: os_type:windows AND (process_name:gup.exe AND -(path:program\ files/notepad++/updater/gup.exe OR path:program\ files\ \(x86\)/notepad++/updater/gup.exe OR (path:users AND (path:appdata/local/notepad++/updater/gup.exe OR path:appdata/roaming/notepad++/updater/gup.exe))))
+on_hit: alert, syslog

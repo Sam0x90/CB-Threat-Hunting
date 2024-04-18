@@ -1,0 +1,9 @@
+name: Defense Evasion, T1036 - Execution from suspicious folder
+index_type: events
+description: Detects execution of process from an uncommon folder.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_susp_execution_path.yml
+    - https://attack.mitre.org/techniques/T1036/
+tags: defense_evasion, t1036
+search_query: os_type:windows AND ((path:$Recycle.bin OR path:config/systemprofile/* OR path:intel/logs/* OR path:rsa/machinekeys/* OR path:users/all\ users/* OR path:users/default/* OR path:users/networkservice/* OR path:users/public/* OR path:windows/addins/* OR path:windows/debug/* OR path:windows/Fonts/* OR path:windows/help/* OR path:windows/ime/* OR path:windows/media/* OR path:windows/repair/* OR path:windows/security/* OR path:windows/system32/tasks/* OR path:windows/tasks/* OR path:c:/perflogs/*) AND -path:c:/windows/syswow64/config/systemprofile/citrix/updaterbinaries/* AND -path:citrixreceiverupdater.exe)
+on_hit: alert, syslog

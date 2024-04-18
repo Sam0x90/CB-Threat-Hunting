@@ -1,0 +1,9 @@
+name: Defense Evasion, Persistence, Privilege Escalation, T1574.002 - Windows SQLWriter SQLDumper DLL Sideload
+index_type: events
+description: Detects dll sideloading using known Microsoft binaries, sqlwriter or sqldumper. This was observed in a campaign from APT29 and its wineloader backdoor on February 2024.
+references:
+    - https://www.splunk.com/en_us/blog/security/wineloader-analysis.html
+    - https://attack.mitre.org/techniques/T1574/002/
+tags: wineloader, persistence, privilege_escalation, defense_evasion, t1574.002
+search_query: os_type:windows AND process_name:sqldumper.exe OR process_name:sqlwriter.exe AND modload:vcruntime140.dll AND -modload:windows/system32/*
+on_hit: alert, syslog

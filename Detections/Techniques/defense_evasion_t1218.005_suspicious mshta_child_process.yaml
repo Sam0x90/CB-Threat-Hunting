@@ -1,0 +1,8 @@
+name: Defense Evasion, T1218.005 - Suspicious MSHTA child process
+index_type: events
+description: Detects an instance of mshta utilty spawning a suspicious process such as cmd or powershell.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_mshta_susp_child_processes.yml
+tags: defense_evasion, t1218.005
+search_query: os_type:windows AND (parent_name:mshta.exe AND ((process_name:cmd.exe OR process_name:powershell.exe OR process_name:pwsh.exe OR process_name:wscript.exe OR process_name:cscript.exe OR process_name:sh.exe OR process_name:bash.exe OR process_name:reg.exe OR process_name:regsvr32.exe OR process_name:bitsadmin.exe) OR (original_filename:cmd.exe OR original_filename:powershell.exe OR original_filename:pwsh.dll OR original_filename:wscript.exe OR original_filename:cscript.exe OR original_filename:bash.exe OR original_filename:reg.exe OR original_filename:regsvr32.exe OR original_filename:bitsadmin.exe)))
+on_hit: alert, syslog
