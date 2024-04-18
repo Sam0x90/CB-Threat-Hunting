@@ -1,0 +1,9 @@
+name: Defense Evasion, T1620 - Potential reflective loading through suspicious command line
+index_type: events
+description: Detects potential reflective loading via various command line
+references:
+    - https://github.com/joesecurity/sigma-rules/blob/master/rules/reflectiveloader.yml
+    - https://attack.mitre.org/techniques/T1620/
+tags: defense_evasion, t1620
+search_query: os_type:windows AND (cmdline:.dll,_reflectiveloader* OR cmdline:.dll,reflectiveloader* OR cmdline:reflectiveloader* OR cmdline:_reflectiveloader* OR (process_name:notepad.exe AND (modload:mscor.dll OR modload:mscoree.dll OR modload:clr.dll)))
+on_hit: alert, syslog

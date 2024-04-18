@@ -1,0 +1,9 @@
+name: Discovery, Defense Evasion, T1497 - Base64 string looking for virutal enviornment for anti-vm purpose
+index_type: events
+description: Detects base64 string that indicates a command line looking for a virtual environment by searching for the string "VirtualBox|VMware|KVM|HVM".
+references:
+    - https://github.com/joesecurity/sigma-rules/blob/master/rules/antivm.yml
+    - https://attack.mitre.org/techniques/T1497/
+tags: discovery, defense_evasion, t1497
+search_query: os_type:windows AND (cmdline:*IlZpcnR1YWxCb3h8Vk13YXJlfEtWTXxIVk0i* OR fileless_scriptload_cmdline:*IlZpcnR1YWxCb3h8Vk13YXJlfEtWTXxIVk0i*)
+on_hit: alert, syslog

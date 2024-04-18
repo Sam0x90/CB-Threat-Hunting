@@ -1,0 +1,8 @@
+name: Defense Evasion - Onenote dropping suspicious file
+index_type: events
+description: Detects an instance of the process onenote.exe dropping suspicious files
+references:
+    - https://github.com/joesecurity/sigma-rules/blob/master/rules/onenotedropssuspiciousfile.yml
+tags: defense_evasion
+search_query: os_type:windows AND process_name:onenote.exe AND (filemod:exported*.hta OR filemod:exported*.lnk OR filemod:exported*.vbs OR filemod:exported*.js OR filemod:exported*.bat OR filemod:onenoteofflinecache_files*.hta OR filemod:onenoteofflinecache_files*.vbs OR filemod:onenoteofflinecache_files*.js OR filemod:onenoteofflinecache_files*.bat)
+on_hit: alert, syslog

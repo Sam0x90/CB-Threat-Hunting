@@ -1,0 +1,9 @@
+name: Discovery, T1614.001 - System region language discovery
+index_type: events
+description: Detect base64 string that is looking for the region to exit if matched with harcoded country list. The string decoded corresponds to Get-UICulture).Name -match "CN|RO|RU|UA|BY 
+references:
+    - https://github.com/joesecurity/sigma-rules/blob/master/rules/geofencedru.yml
+    - https://attack.mitre.org/techniques/T1614/001/
+tags: discovery, t1614.001
+search_query: os_type:windows AND (fileless_scriptload_cmdline:*R2V0LVVJQ3VsdHVyZSkuTmFtZSAtbWF0Y2ggIkNOfFJPfFJVfFVBfEJZI* OR cmdline:*R2V0LVVJQ3VsdHVyZSkuTmFtZSAtbWF0Y2ggIkNOfFJPfFJVfFVBfEJZI*)
+on_hit: alert, syslog

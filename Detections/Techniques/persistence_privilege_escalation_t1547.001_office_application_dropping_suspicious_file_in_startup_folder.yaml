@@ -1,0 +1,9 @@
+name: Persistence, Privilege Escalation, T1547.001 - Office application dropping suspicious file in startup folder
+index_type: events
+description: Detects an instance of word, excel or powerpoint dropping an executable or script within the startup folder.
+references:
+    - https://github.com/joesecurity/sigma-rules/blob/master/rules/winworddropsscriptInstartup.yml
+    - https://attack.mitre.org/techniques/T1547/001/
+tags: persistence, privilege_escalation, t1547.001
+search_query: os_type:windows AND (process_name:winword.exe OR process_name:excel.exe OR process_name:powerpnt.exe) AND (filemod:startup/*.exe OR filemod:startup/*.vbs OR filemod:startup/*.js OR filemod:startup/*.bat OR filemod:startup/*.url OR filemod:startup/*.cmd OR filemod:startup/*.hta OR filemod:startup/*.ps1)
+on_hit: alert, syslog
