@@ -1,0 +1,11 @@
+name: Execution, T1047, Discovery, T1518.001, T1082 - Potential product and system reconnaissance via wmic
+index_type: events
+description: Detects the execution of WMIC in order to get a list of firewall and antivirus products
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_recon_product.yml
+    - https://attack.mitre.org/techniques/T1047/
+    - https://attack.mitre.org/techniques/T1518/001/
+    - https://attack.mitre.org/techniques/T1082/
+tags: execution, t1047, discovery, t1518.001, t1082
+search_query: os_type:windows AND (process_name:wmic.exe OR original_filename:wmic.exe) AND (cmdline:product OR cmdline:computersystem)
+on_hit: alert, syslog

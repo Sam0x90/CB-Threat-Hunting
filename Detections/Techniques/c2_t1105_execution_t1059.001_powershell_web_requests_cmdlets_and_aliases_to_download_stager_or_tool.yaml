@@ -1,0 +1,13 @@
+name: C2, T1105, Execution, T1059.001 - Powershell web request cmdlets and aliases to download stager or tool 
+index_type: events
+description: Detects the use of various web request commands with commandline tools and Windows PowerShell cmdlets (including aliases), likely use to download a second stage or tool.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/r2024-03-26-27-ga1a3b2969/rules/windows/powershell/powershell_script/posh_ps_web_request_cmd_and_cmdlets.yml
+    - https://attack.mitre.org/techniques/T1059/001/
+    - https://attack.mitre.org/techniques/T1105/
+tags: c2, t1105, execution, t1059.001
+search_query: os_type:windows AND fileless_scriptload_cmdline:[System.Net.WebRequest]\:\:create* OR fileless_scriptload_cmdline:curl OR fileless_scriptload_cmdline:Invoke-RestMethod OR fileless_scriptload_cmdline:Invoke-WebRequest OR fileless_scriptload_cmdline:iwr OR fileless_scriptload_cmdline:Net.WebClient OR fileless_scriptload_cmdline:Resume-BitsTransfer OR fileless_scriptload_cmdline:Start-BitsTransfer OR fileless_scriptload_cmdline:wget OR fileless_scriptload_cmdline:WinHttp.WinHttpRequest
+on_hit: alert, syslog
+
+
+

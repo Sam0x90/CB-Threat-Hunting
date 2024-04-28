@@ -1,0 +1,8 @@
+name: Execution, T1059.001 - Powershell creating a binary or script file
+index_type: events
+description: Detects PowerShell creating a binary executable or a script file.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/r2024-03-26-27-ga1a3b2969/rules/windows/file/file_event/file_event_win_powershell_drop_binary_or_script.yml
+tags: execution, t1059.001
+search_query: os_type:windows AND ((process_name:powershell.exe OR process_name:pwsh.exe) AND (filemod:*.bat OR filemod:*.chm OR filemod:*.cmd OR filemod:*.com OR filemod:*.dll OR filemod:*.exe OR filemod:*.hta OR filemod:*.jar OR filemod:*.js OR filemod:*.ocx OR filemod:*.scr OR filemod:*.sys OR filemod:*.vbe OR filemod:*.vbs OR filemod:*.wsf)) AND -(filemod:c:/users/*/appdata/local/temp/*.dll OR filemod:c:/users/*/appdata/local/temp/*.exe)
+on_hit: alert, syslog

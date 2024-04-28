@@ -1,0 +1,10 @@
+name: Execution, T1047, Defense Evasion, T1220 - WMIC loading scripting libraries
+index_type: events
+description: Detects threat actors proxy executing code and bypassing application controls by leveraging wmic and the `/FORMAT` argument switch to download and execute an XSL file (i.e js, vbs, etc). The /Format argument can be bypassed easily but if detection is too noisy, better to add it in cmdline field.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_wmic_remote_xsl_scripting_dlls.yml
+    - https://attack.mitre.org/techniques/T1047/
+    - https://attack.mitre.org/techniques/T1220/
+tags: execution, t1047, defense_evasion, t1220
+search_query: os_type:windows AND process_name:wmic.exe AND (modload:jscript.dll OR modload:vbscript.dll)
+on_hit: alert, syslog

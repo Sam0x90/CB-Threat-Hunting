@@ -1,0 +1,9 @@
+name: Persistence, Privilege Escalation, Execution, T1053.005 - Suspicious command patterns in scheduled task creation
+index_type: events
+description: Detects scheduled task creation using "schtasks" that contain potentially suspicious or uncommon commands
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_susp_pattern.yml
+    - https://attack.mitre.org/techniques/T1053/005/
+tags: persistence, privilege_escalation, execution, t1053.005
+search_query: os_type:windows AND (process_name:schtasks.exe OR original_filename:schtasks.exe) AND cmdline:/create AND (((cmdline:/sc\ minute OR cmdline:/ru\ system) AND (cmdline:cmd\ /c OR cmdline:cmd\ /k OR cmdline:cmd\ /r OR cmdline:cmd.exe\ /c OR cmdline:cmd.exe\ /k OR cmdline:*cmd.exe\ /r)) OR (cmdline:-decode OR cmdline:-enc OR cmdline:-w\ hidden OR cmdline:bypass* OR cmdline:IEX* OR cmdline:*.DownloadData* OR cmdline:*.DownloadFile* OR cmdline:*.DownloadString* OR cmdline:/c\ start\ /min OR cmdline:*FromBase64String* OR cmdline:mshta\ http* OR cmdline:mshta.exe\ http*) OR ((cmdline:ProgramData/* OR cmdline:Temp/* OR cmdline:Tmp/* OR cmdline:/Users/Public/* OR cmdline:Windows/Temp/* OR cmdline:AppData/* OR cmdline:%AppData%* OR cmdline:%Temp%* OR cmdline:%tmp%*) AND (cmdline:cscript* OR cmdline:curl OR cmdline:wscript*)))
+on_hit: alert, syslog

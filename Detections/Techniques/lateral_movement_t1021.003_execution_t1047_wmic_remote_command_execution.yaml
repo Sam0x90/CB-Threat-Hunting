@@ -1,0 +1,10 @@
+name: Lateral Movement, T1021.003, Execution, T1047 - WMIC remote command execution
+index_type: events
+description: Detects the execution of WMIC to query information or execute commands on a remote system. This can be an indicator of lateral movement leveraging the DCOM service via WMIC.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_remote_execution.yml
+    - https://attack.mitre.org/techniques/T1047/
+    - https://attack.mitre.org/techniques/T1021/003/
+tags: lateral_movement, t1021.003, execution, t1047
+search_query: os_type:windows AND (process_name:wmic.exe OR original_filename:wmic.exe) AND cmdline:/node:* AND -(cmdline:/node:127.0.0.1 OR cmdline:/node:localhost)
+on_hit: alert, syslog

@@ -1,0 +1,10 @@
+name: Defense Evasion, T1027.010, Execution, T1059.001 - Encoded powershell commands
+index_type: events
+description: Detects suspicious powershell process command line that contains base64 encoded commands
+references:
+    - https://github.com/SigmaHQ/sigma/blob/r2024-03-26-27-ga1a3b2969/rules/windows/process_creation/proc_creation_win_powershell_base64_encoded_cmd.yml
+    - https://attack.mitre.org/techniques/T1059/001/
+    - https://attack.mitre.org/techniques/T1027/010/
+tags: defense_evasion, t1027.010, execution, t1059.001
+search_query: os_type:windows AND (process_name:powershell.exe OR process_name:pwsh.exe) AND ((cmdline:-e* AND (cmdline:JAB* OR cmdline:SUVYI* OR cmdline:SQBFAFgA* OR cmdline:aQBlAHgA* OR cmdline:aWV4I* OR cmdline:IAA* OR cmdline:IAB* OR cmdline:UwB* OR cmdline:cwB*)) OR (cmdline:BAJ AND cmdline:^e^-*))
+on_hit: alert, syslog

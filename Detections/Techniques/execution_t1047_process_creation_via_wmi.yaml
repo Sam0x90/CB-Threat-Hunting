@@ -3,5 +3,5 @@ index_type: events
 description: Detects the usage of WMI in order to spawn new processes
 references: https://attack.mitre.org/techniques/T1047/
 tags: execution, t1047
-search_query: process_name:wmic.exe AND cmdline:"process" AND cmdline:"create"
+search_query: process_name:wmic.exe AND cmdline:process AND cmdline:create
 on_hit: alert, syslog

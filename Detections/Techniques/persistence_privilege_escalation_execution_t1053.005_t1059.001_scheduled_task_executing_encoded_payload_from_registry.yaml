@@ -1,0 +1,10 @@
+name: Persistence, Privilege Escalation, Execution, T1053.005, T1059.001 - Scheduled task executing encoded payload from registry
+index_type: events
+description: Detects the creation of a schtask that potentially executes a base64 encoded payload stored in the Windows Registry using PowerShell.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_schtasks_reg_loader_encoded.yml
+    - https://attack.mitre.org/techniques/T1053/005/
+    - https://attack.mitre.org/techniques/T1059/001/
+tags: persistence, execution, privilege_escalation, t1053.005, t1059.001
+search_query: os_type:windows AND (process_name:schtasks.exe OR original_filename:schtasks.exe) AND cmdline:/create AND (cmdline:FromBase64String OR cmdline:encodedcommand) AND (cmdline:Get-ItemProperty OR cmdline:gp) AND (cmdline:HKCU:* OR cmdline:HKLM:* OR cmdline:registry::* OR cmdline:HKEY_*)
+on_hit: alert, syslog

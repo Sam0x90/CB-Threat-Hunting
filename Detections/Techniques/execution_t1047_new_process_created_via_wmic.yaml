@@ -1,0 +1,9 @@
+name: Execution, T1047 - New process created via wmic
+index_type: events
+description: Detects a new process created using WMIC via the "process call create" flag.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_wmic_process_creation.yml
+    - https://attack.mitre.org/techniques/T1047/
+tags: execution, t1047
+search_query: os_type:windows AND (process_name:wmic.exe OR original_filename:wmic.exe) AND cmdline:process AND cmdline:call AND cmdline:create
+on_hit: alert, syslog

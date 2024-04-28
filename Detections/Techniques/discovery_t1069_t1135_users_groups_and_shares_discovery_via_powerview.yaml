@@ -3,5 +3,5 @@ index_type: events
 description: Detects the usage of Powerview script used for reconnaissance of users, groups and network shares
 references: https://attack.mitre.org/techniques/T1135/, https://attack.mitre.org/techniques/T1069/
 tags: discovery, t1069, t1135
-search_query: process_name:powershell.exe AND (cmdline:Get-NetLocalGroup OR cmdline:Get-NetLocalGroupMember OR cmdline:Get-NetShare OR cmdline:Get-NetDomain OR cmdline:"Get-NetUser -SPN | ?{$_.memberof -match 'Domain Admins'}" OR cmdline:Get-DomainSID OR cmdline:Get-DomainTrust OR cmdline:Get-DomainGPO OR cmdline:Get-DomainPolicy)
+search_query: process_name:powershell.exe AND (fileless_scriptload_cmdline:Get-NetLocalGroup OR fileless_scriptload_cmdline:Get-NetLocalGroupMember OR fileless_scriptload_cmdline:Get-NetShare OR fileless_scriptload_cmdline:Get-NetDomain OR fileless_scriptload_cmdline:"Get-NetUser -SPN | ?{$_.memberof -match 'Domain Admins'}" OR fileless_scriptload_cmdline:Get-DomainSID OR fileless_scriptload_cmdline:Get-DomainTrust OR fileless_scriptload_cmdline:Get-DomainGPO OR fileless_scriptload_cmdline:Get-DomainPolicy OR fileless_scriptload_cmdline:Invoke-ShareFinder)
 on_hit: alert, syslog
