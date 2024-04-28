@@ -64,9 +64,11 @@ See the [open issues](https://github.com/Sam0x90/CB-Threat-Hunting/issues) for a
 ## Detection Engineering Tips
 
 1. In the sensor group settings, under "Advanced", make sure that the "Retention Maximization" setting is set to "Minimum Retention", this would ensure that all processes are available for search. Of course, that is only if you can afford this settings, this means that you should send the telemetry to a central logging server (SIEM for example) to ensure proper retention.
-2. Paths are sometimes difficult to search for in Solr backend, here are some important examples:
-  2.1 In ```path```, ```filemod```, ```modload``` or ```regmod``` fields, you can use a forward slash ```/``` or double backslash ```\\```, such as: ```regmod:software/microsoft/windows/currentversion/run*```
-  2.2 In  ```cmdline``` field, the forward slash doesn't work, only the double backslash ```\\``` works. However, as opposed to 2.1, because of the way the tokenization works, you can't use the wildcard at the end, you will have to combine multiple search fields such as: ```cmdline:"Software\\Microsoft\\Windows\\CurrentVersion\\Run" OR cmdline:"Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce"```
+2. Paths are sometimes difficult to search for in Solr backend, here are some important examples:\
+    - In ```path```, ```filemod```, ```modload``` or ```regmod``` fields, you can use a forward slash ```/``` or double backslash ```\\```, such as:\
+      ```regmod:software/microsoft/windows/currentversion/run*```
+    - In  ```cmdline``` field, the forward slash doesn't work, only the double backslash ```\\``` works. However, as opposed to the previous bullet point, because of the way the tokenization works, you can't use the wildcard at the end, you will have to combine multiple search fields such as:\
+      ```cmdline:"Software\\Microsoft\\Windows\\CurrentVersion\\Run" OR cmdline:"Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce"```
 
 ## Detection rule format
 The following describes the rule format used in this repository to document detection rules.\
