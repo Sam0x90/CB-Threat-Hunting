@@ -69,6 +69,7 @@ See the [open issues](https://github.com/Sam0x90/CB-Threat-Hunting/issues) for a
       ```regmod:software/microsoft/windows/currentversion/run*```
     - In  ```cmdline``` field, the forward slash doesn't work, only the double backslash ```\\``` works. However, as opposed to the previous bullet point, because of the way the tokenization works, you can't use the wildcard at the end, you will have to combine multiple search fields such as:\
       ```cmdline:"Software\\Microsoft\\Windows\\CurrentVersion\\Run" OR cmdline:"Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce"```
+3. For some of the detections to work, especially those around Powershell activites, you will need to check the box "Fileless script loads" under the sensor group settings. 
 
 ## Detection rule format
 The following describes the rule format used in this repository to document detection rules.\
