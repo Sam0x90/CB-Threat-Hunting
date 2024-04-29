@@ -3,5 +3,5 @@ index_type: events
 description: Detects suspicious connection to AD Web Service (ADWS) port 9389 originating from suspcious processes.
 references: https://github.com/FalconForceTeam/FalconFriday/blob/master/Discovery/ADWS_Connection_from_Unexpected_Binary-Win.md, https://attack.mitre.org/techniques/T1119/, https://attack.mitre.org/techniques/T1087/
 tags: collection, t1119, discovery, t1087
-search_query: ipport:9389 AND -(process_name:dsac.exe OR process_name:pwsh.exe OR path:"c:\windows\system32\windowspowershell\" OR path:"c:\windows\syswow64\windowspowershell\" OR path:"c:\program files\microsoft monitoring agent\")
+search_query: ipport:9389 AND -(process_name:dsac.exe OR process_name:pwsh.exe OR path:"c:\windows\system32\windowspowershell\" OR path:"c:\windows\syswow64\windowspowershell\" OR path:"c:\program files\microsoft monitoring agent\" OR ipv6addr:::1 OR ipaddr:127.0.0.1)
 on_hit: alert, syslog
