@@ -1,0 +1,9 @@
+name: Peristence, Privilege Escalation, T1547.001 - Potential persistence attempt via common registry keys using reg
+index_type: events
+description: Detects suspicious command line reg.exe tool adding key to common persistence keys in Registry
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_reg_add_run_key.yml
+    - https://attack.mitre.org/techniques/T1547/001/
+tags: persistence, privilege_escalation, t1547.001
+search_query: os_type:windows AND (process_name:reg.exe OR original_filename:reg.exe) AND cmdline:add AND (regmod:software/microsoft/windows/currentversion/run* OR regmod:software/microsoft/windows/currentversion/explorer/user\ shell\ folders OR regmod:software/microsoft/windows/currentversion/explorer/run* OR cmdline:"Software\\Microsoft\\Windows\\CurrentVersion\\Run" OR cmdline:"Software\\Microsoft\\Windows\\CurrentVersion\\RunOnce" OR cmdline:"Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders" OR cmdline:"Software\Microsoft\Windows\CurrentVersion\Explorer\Run")
+on_hit: alert, syslog
