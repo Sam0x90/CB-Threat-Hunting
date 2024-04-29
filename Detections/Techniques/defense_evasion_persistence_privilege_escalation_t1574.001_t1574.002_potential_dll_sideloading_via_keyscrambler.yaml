@@ -1,0 +1,10 @@
+name: Defense Evasion, Persistence, Privilege Escalation, T1574.001, T1574.002 - Potential DLL sideloading of via KeyScrambler
+index_type: events
+description: Detects potential DLL side loading of "KeyScramblerIE.dll" by "KeyScrambler.exe". Various threat actors and malware have been found side loading a masqueraded "KeyScramblerIE.dll" through "KeyScrambler.exe".
+references:
+    - https://github.com/SigmaHQ/sigma/blob/39db80478e36599be3b25d9cdbd2c168815c4ea3/rules/windows/image_load/image_load_side_load_keyscrambler.yml
+    - https://attack.mitre.org/techniques/T1574/001/
+    - https://attack.mitre.org/techniques/T1574/002/
+tags: defense_evasion, persistence, privilege_escalation, t1574.001, t1574.002
+search_query: os_type:windows AND ((process_name:KeyScrambler.exe OR process_name:KeyScramblerLogon.exe) AND modload:KeyScramblerIE.dll) AND -(((path:C:/Program\ Files\ \(x86\)/KeyScrambler/* OR path:C:/Program\ Files/KeyScrambler/*) AND (modload:C:/Program\ Files/ \(x86\)/KeyScrambler/* OR modload:C:/Program\ Files/KeyScrambler/*)) OR (digsig_subject:"QFX Software Corporation" AND digsig_result:Signed))
+on_hit: alert, syslog
