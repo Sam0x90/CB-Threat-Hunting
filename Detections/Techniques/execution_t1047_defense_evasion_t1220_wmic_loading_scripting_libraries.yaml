@@ -6,5 +6,5 @@ references:
     - https://attack.mitre.org/techniques/T1047/
     - https://attack.mitre.org/techniques/T1220/
 tags: execution, t1047, defense_evasion, t1220
-search_query: os_type:windows AND process_name:wmic.exe AND (modload:jscript.dll OR modload:vbscript.dll)
+search_query: os_type:windows AND process_name:wmic.exe AND (modload:jscript.dll OR modload:vbscript.dll) AND -cmdline:"wmic cpu get NumberOfCores" AND -cmdline:"wmic os get locale"
 on_hit: alert, syslog
