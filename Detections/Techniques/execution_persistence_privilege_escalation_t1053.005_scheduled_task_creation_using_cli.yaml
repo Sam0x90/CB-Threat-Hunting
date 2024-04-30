@@ -1,7 +1,7 @@
-name: Execution, Persistence, Privilege Escalation, T1053.005 Schedule task creation using CLI
+name: Execution, Persistence, Privilege Escalation, T1053.005 Scheduled task creation using CLI
 index_type: events
 description: Detects the creation of schedule tasks with the usage of schtasks.exe or any usage of the at.exe utility.
 references: https://attack.mitre.org/techniques/T1053/005/
 tags: execution, persistence, privilege_escalation, t1053.005
-search_query: process_name:schtasks.exe AND cmdline:*create* AND -username:"NT AUTHORITY\SYSTEM" OR (process_name:at.exe)
+search_query: process_name:schtasks.exe AND cmdline:*create* AND -username:"SYSTEM" OR (process_name:at.exe)
 on_hit: alert, syslog
