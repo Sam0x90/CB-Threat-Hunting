@@ -1,0 +1,10 @@
+name: Persistence, T1505.001, Execution, T1059.003 - Potential execution via xp_cmdshell on SQL server
+index_type: events
+description: Detects the potential execution of cmd via xp_cmdshell on MSSQL server. If too noisy it could be narrow down by adding "AND (childproc_name:whoami.exe OR childproc:ipconfig.exe OR childproc:powershell.exe)"
+references:
+    - https://attack.mitre.org/techniques/T1505/001/
+    - https://attack.mitre.org/techniques/T1059/003/
+    - https://learn.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql?view=sql-server-ver16
+tags: persistence, t1505.001, execution, t1059.003
+search_query: os_type:windows AND parent_name:sqlservr.exe AND process_name:cmd.exe
+on_hit: alert, syslog
