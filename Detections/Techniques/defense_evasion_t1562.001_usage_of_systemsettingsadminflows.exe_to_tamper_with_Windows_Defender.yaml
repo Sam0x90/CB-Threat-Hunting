@@ -1,0 +1,9 @@
+name: Defense Evasion, T1562.001 - Usage of SystemSettingsAdminFlows.exe to tamper with Windows Defender
+index_type: events
+description: Detects the usage of SystemSettingsAdminFlows.exe to disable or tamper with Windows Defender. This behavior was observed being used by Inc ransomware threat group.
+references:
+    - https://www.huntress.com/blog/lolbin-to-inc-ransomware
+    - https://attack.mitre.org/techniques/T1562/001/
+tags: defense_evasion, t1562.001
+search_query: os_type:windows AND (process_name:systemsettingsadminflows.exe OR original_filename:systemsettingsadminflows.exe) AND (cmdline:defender\ disableenhancednotifications\ 1* OR cmdline:defender\ submitsamplesconsent\ 0* OR cmdline:defender\ spynetreporting\ 0* OR cmdline:defender\ rtp\ 1*) AND -parent_name:systemsettings.exe
+on_hit: alert, syslog
