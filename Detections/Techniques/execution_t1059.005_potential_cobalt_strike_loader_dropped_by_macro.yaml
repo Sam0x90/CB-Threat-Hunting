@@ -1,0 +1,10 @@
+name: Execution, T1059.005 - Potential cobalt strike loader dropped by macro
+index_type: events
+description: Detects macro dropping potential cobalt strike. Technique observed being used by different threat actors.
+references: 
+    - https://tdm.socprime.com/tdm/info/hmvDwwf3o7cB
+    - https://blog.malwarebytes.com/threat-analysis/2020/06/multi-stage-apt-attack-drops-cobalt-strike-using-malleable-c2-feature
+    - https://attack.mitre.org/techniques/T1059/005
+tags: execution, t1059.005
+search_query: filemod:ecmd.exe OR filemod:ecmd.exe.lnk OR filemod:cf.ini
+on_hit: alert, syslog

@@ -1,0 +1,9 @@
+name: Defense Evasion, T1202 - Suspicious conhost.exe child process used for indirect command execution
+index_type: events
+description: Detects suspicious child process of conhost.exe. It can be used as an indirect command execution technique.
+references: 
+    - https://www.hexacorn.com/blog/2020/05/25/how-to-con-your-host/
+    - https://attack.mitre.org/techniques/T1202/
+tags: defense_evasion, t1202 
+search_query: parent_name:conhost.exe
+on_hit: alert, syslog
