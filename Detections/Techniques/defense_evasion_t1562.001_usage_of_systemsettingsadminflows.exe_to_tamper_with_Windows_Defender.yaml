@@ -5,5 +5,5 @@ references:
     - https://www.huntress.com/blog/lolbin-to-inc-ransomware
     - https://attack.mitre.org/techniques/T1562/001/
 tags: defense_evasion, t1562.001
-search_query: os_type:windows AND (process_name:systemsettingsadminflows.exe OR original_filename:systemsettingsadminflows.exe) AND (cmdline:defender\ disableenhancednotifications\ 1* OR cmdline:defender\ submitsamplesconsent\ 0* OR cmdline:defender\ spynetreporting\ 0* OR cmdline:defender\ rtp\ 1*) AND -parent_name:systemsettings.exe
+search_query: os_type:windows AND (process_name:systemsettingsadminflows.exe OR original_filename:systemsettingsadminflows.exe) AND cmdline:defender AND ((cmdline:1 AND (cmdline:disableenhancednotifications OR cmdline:rtp)) OR (cmdline:0 AND (cmdline:spynetreporting OR cmdline:submitsamplesconsent)))
 on_hit: alert, syslog
