@@ -3,6 +3,7 @@ index_type: events
 description: Detects Fancy Bear aka APT28 known domains used in their spear phishing campaigns.
 references: 
     - https://x.com/BushidoToken/status/1788892704966942977
+    - https://cert.pl/en/posts/2024/05/apt28-campaign/
     - https://cert.gov.ua/article/5702579
     - https://attack.mitre.org/techniques/T1102/
 tags: c2, t1102
