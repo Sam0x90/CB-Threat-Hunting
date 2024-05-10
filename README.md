@@ -152,7 +152,8 @@ This field can also be used to understand the maturity of the rule.
 name: C2, T1105, Defense Evasion T1197 File Download via Bitsadmin Usage
 index_type: events
 description: Detects the usage of the Windows built-in bitsadmin to download a file (especially with the transfer argument).
-references: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml, https://attack.mitre.org/techniques/T1197/, https://attack.mitre.org/techniques/T1105/
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bitsadmin_download.yml, https://attack.mitre.org/techniques/T1197/, https://attack.mitre.org/techniques/T1105/
 tags: c2, t1105, defense_evasion, t1197, s1090
 search_query: process_name:"bitsadmin.exe" AND cmdline:"/transfer"
 on_hit: alert, syslog
