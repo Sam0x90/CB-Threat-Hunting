@@ -96,7 +96,9 @@ The rule filename must adhere to the following rules:
 name: 
 index_type: 
 description: 
-references: 
+references:
+    -
+    - 
 tags: 
 search_query: 
 on_hit: 
