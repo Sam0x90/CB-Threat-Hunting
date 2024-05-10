@@ -1,0 +1,9 @@
+name: C2, T1071.001 - Execution of Edge browser in headless mode
+index_type: events
+description: Detects the execution of msedge in headless mode (without UI) which is a behavior observed in Fancy Bear aka APT28 campaigns.
+references:
+    - https://cert.gov.ua/article/5702579
+    - https://attack.mitre.org/techniques/T1071/001/
+tags: c2, t1071.001
+search_query:  os_type:windows AND process_name:msedge.exe AND cmdline:--headless
+on_hit: alert, syslog

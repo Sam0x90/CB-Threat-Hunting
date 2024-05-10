@@ -1,0 +1,9 @@
+name: Execution, T1059.003 - Potential Fancy Bear aka APT28 cmd file spawning msedge
+index_type: events
+description: Detects typical Fancy Bear aka APT28 technique leveraging cmd file that spawns fake web pages in Edge browser.
+references:
+    - https://cert.gov.ua/article/5702579
+    - https://attack.mitre.org/techniques/T1059/003/
+tags: execution, t1059.003
+search_query: os_type:windows AND cmdline:.cmd AND childproc_name:msedge.exe
+on_hit: alert, syslog

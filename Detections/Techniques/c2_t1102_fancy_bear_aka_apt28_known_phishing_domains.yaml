@@ -1,0 +1,10 @@
+name: C2 T1102 - Fancy Bear aka APT28 known phishing domains
+index_type: events
+description: Detects Fancy Bear aka APT28 known domains used in their spear phishing campaigns.
+references: 
+    - https://x.com/BushidoToken/status/1788892704966942977
+    - https://cert.gov.ua/article/5702579
+    - https://attack.mitre.org/techniques/T1102/
+tags: c2, t1102
+search_query:  os_type:windows AND domain:file.io OR domain:mockbin.org OR domain:mocky.io OR domain:webhook.site
+on_hit: alert, syslog

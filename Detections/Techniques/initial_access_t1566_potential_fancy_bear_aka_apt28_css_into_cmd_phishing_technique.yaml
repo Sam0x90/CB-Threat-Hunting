@@ -1,0 +1,9 @@
+name: Initial Access, T1566 - Potential Fancy Bear aka APT28 css into cmd phishing technique
+index_type: events
+description: Detects the download of a css file which is then move to appdata folder. This is typical Fancy Bear aka APT28 behavior during phishing campaigns.
+references: 
+    - https://cert.gov.ua/article/5702579
+    - https://attack.mitre.org/techniques/T1566/
+tags: initial_access, t1566
+search_query: os_type:windows AND (filemod:c:/users/*/Downloads/*.css OR filemod:c:/users/*/appdata/*.cmd)
+on_hit: alert, syslog
