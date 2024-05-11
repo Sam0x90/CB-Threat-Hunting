@@ -1,0 +1,9 @@
+name: Defense Evasion, Persistence, Privilege Escalation, T1574.001 - Potential WindowsCodecs DLL search order hijack via calc
+index_type: events
+description: Detects potential DDL hijacking leveraging calc.exe executed via command line in order to load WindowsCodecs.dll. This behavior has been observed in Qakbot execution. 
+references:
+    - https://www.sentinelone.com/labs/black-basta-ransomware-attacks-deploy-custom-edr-evasion-tools-tied-to-fin7-threat-actor/
+    - https://attack.mitre.org/techniques/T1574/001/
+tags: defense_evasion, persistence, privilege_escalation, t1574.001
+search_query: os_type:windows AND cmdline:calc.exe AND -process_name:calc.exe
+on_hit: alert, syslog
