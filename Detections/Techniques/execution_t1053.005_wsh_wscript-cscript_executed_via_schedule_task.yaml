@@ -1,0 +1,9 @@
+name: Execution, T1053.005 - WSH wscript-cscript executed via schedule task 
+index_type: events
+description: Detects the execution of WSH (wscript or cscript) via schedule task utility schtask. This behavior was observed during Koi dropper/stealer compromise.
+references:
+    - https://redcanary.com/blog/threat-intelligence/intelligence-insights-may-2024/
+    - https://attack.mitre.org/techniques/T1053/005/
+tags: execution, t1053.005, koi
+search_query: os_type:windows AND process_name:schtasks.exe AND cmdline:create AND (cmdline:wscript OR cmdline:cscript)
+on_hit: alert, syslog

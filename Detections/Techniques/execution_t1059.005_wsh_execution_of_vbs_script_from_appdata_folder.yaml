@@ -1,0 +1,9 @@
+name: Execution, T1059.005 - WSH execution of vbs script from appdata folder
+index_type: events
+description: Detects the execution of VBS script via wscript or cscript from suspicious temporary folder in appdata. This behavior was observed during IcedID compromise reported by TheDFIRReport end of 2023.
+references:
+    - https://thedfirreport.com/2024/06/10/icedid-brings-screenconnect-and-csharp-streamer-to-alphv-ransomware-deployment/
+    - https://attack.mitre.org/techniques/T1059/005/
+tags: execution, t1059.005
+search_query: os_type:windows AND (process_name:wscript.exe OR process_name:cscript.exe) AND cmdline:appdata/local/temp/ AND cmdline:.vbs AND parent_name:explorer.exe
+on_hit: alert, syslog
