@@ -1,6 +1,6 @@
 name: Lateral Movement, T1570 - Potential ransomware deployment by usage of xcopy to move files laterally on the network
 index_type: events
-description: Detects the usage of xcopy to copy files to remote computer C drives. This behavior is commonly observed during ransomware deployments, particularly when this event occurs multiple times.
+description: Detects the usage of xcopy, to copy files to remote computer C drives. This behavior is commonly observed during ransomware deployments, particularly when this event occurs multiple times.
 references:
     - https://thedfirreport.com/2024/06/10/icedid-brings-screenconnect-and-csharp-streamer-to-alphv-ransomware-deployment/
     - https://attack.mitre.org/techniques/T1570/
