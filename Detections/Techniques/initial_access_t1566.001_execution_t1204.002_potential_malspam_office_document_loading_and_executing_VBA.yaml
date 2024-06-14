@@ -1,0 +1,11 @@
+name: Initial Access, T1566.001, Execution, T1204.002 - Potential malspam office document loading and executing VBA
+index_type: events
+description: Detects VB DLL's loaded by an office application. Which could indicate the presence of VBA Macros. Depending on the environment it might trigger a lot, therefore this detection will by default not create any alerts. You can modify the "on_hit" section of the rule if necessary.
+references:
+    - https://attack.mitre.org/techniques/T1204/002/
+    - https://attack.mitre.org/techniques/T1566/001/
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_office_vbadll_load.yml
+    - https://github.com/splunk/security_content/blob/develop/detections/endpoint/office_document_executing_macro_code.yml
+tags: initial_access, t1566, execution, t1204.002
+search_query: os_type:windows AND (process_name:excel.exe OR process_name:mspub.exe OR process_name:onenote.exe OR process_name:onenoteim.exe OR process_name:outlook.exe OR process_name:powerpnt.exe OR process_name:winword.exe) AND (modload:vbe7.dll OR modload:vbeui.dll OR modload:vbe7intl.dll)
+on_hit: syslog
