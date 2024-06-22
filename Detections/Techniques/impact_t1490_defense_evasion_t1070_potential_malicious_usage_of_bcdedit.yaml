@@ -1,0 +1,9 @@
+name: Impact, T1490, Defense Evasion, T1070 - Potential malicious usage of bcdedit
+index_type: events
+description: Detects potential malicious and unauthorized usage of bcdedit.exe in order to modify boot configuration data.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_bcdedit_susp_execution.yml
+    - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1562.009/T1562.009.md
+tags: impact, t1490, defense_evasion, t1070
+search_query: os_type:windows AND (process_name:bcdedit.exe OR original_filename:bcdedit.exe) AND (cmdline:delete OR cmdline:deletevalue OR cmdline:import OR cmdline:safeboot OR cmdline:network)
+on_hit: alert, syslog
