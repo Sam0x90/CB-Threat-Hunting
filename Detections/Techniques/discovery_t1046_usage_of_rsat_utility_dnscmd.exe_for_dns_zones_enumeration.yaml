@@ -1,0 +1,9 @@
+name: Discovery, T1046 - Usage of RSAT utility dnscmd.exe for dns zones enumeration
+index_type: events
+description: Detects the usage of Windows server Remote Server Administration Tools (RSAT) utility dnscmd.exe to enumerate the DNS zones of a domain.
+references:
+    - https://attack.mitre.org/techniques/T1046/
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_dnscmd_discovery.yml
+tags: discovery, t1046
+search_query: os_type:windows AND (process_name:dnscmd.exe AND (cmdline:/enumrecords OR cmdline:/enumzones OR cmdline:/ZonePrint OR cmdline:/info))
+on_hit: alert, syslog
