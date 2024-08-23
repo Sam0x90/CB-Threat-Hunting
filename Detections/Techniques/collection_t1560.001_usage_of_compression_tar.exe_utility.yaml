@@ -1,0 +1,10 @@
+name: Collection, T1560.001 - Usage of compression tar.exe utility
+index_type: events
+description: Detects execution of tar.exe in order to create a compressed file. Adversaries may abuse various utilities to compress or encrypt data as part of the collection phase.
+references:
+    - https://unit42.paloaltonetworks.com/chromeloader-malware/
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_tar_compression.yml
+    - https://attack.mitre.org/techniques/T1560/001/
+tags: Collection, t1560.001
+search_query: os_type:windows AND ((process_name:tar.exe OR original_filename:bsdftar) AND (cmdline:-c OR cmdline:-r OR cmdline:-u OR cmdline:-xvf))
+on_hit: alert, syslog
