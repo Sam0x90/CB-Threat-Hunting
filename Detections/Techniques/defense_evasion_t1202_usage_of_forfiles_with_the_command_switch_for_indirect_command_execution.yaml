@@ -1,0 +1,10 @@
+name: Defense Evasion, T1202 - Usage of forfiles with the command switch for indirect command execution
+index_type: events
+description: Detects the usage of forfiles.exe with the command switch /c or -c for indirect command execution. This behavior was observed during PEAKLIGHT malware compromise reported by Mandiant on August 2024
+references:
+    - https://cloud.google.com/blog/topics/threat-intelligence/peaklight-decoding-stealthy-memory-only-malware
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_forfiles_proxy_execution_.yml
+    - https://attack.mitre.org/techniques/T1202/
+tags: defense_evasion, t1202
+search_query: os_type:windows AND (process_name:forfiles.exe OR original_filename:forfiles.exe) AND (cmdline:-c OR cmdline:/c) 
+on_hit: alert, syslog

@@ -1,0 +1,9 @@
+name: Defense Evasion, T1027.010 - Command line obfuscation for indirect call using registry key property PSChildName
+index_type: events
+description: Detects the obfuscation of a command line execution by leveraging the registry key property PSChildName for the process to execute. It was observed by Mandiant in August 2024 for PEAKLIGHT malware and looks similar to "powershell.exe .(gp -pa 'HKLM:\SOF*\Clas*\Applications\msh*e').('PSChildName')http...". This would execute mshta.exe with an URL as argument.
+references:
+    - https://cloud.google.com/blog/topics/threat-intelligence/peaklight-decoding-stealthy-memory-only-malware
+    - https://attack.mitre.org/techniques/T1027/010/
+tags: defense_evasion, t1027.010
+search_query: os_type:windows AND (process_name:powershell.exe OR original_filename:powershell.exe) AND (cmdline:gp OR cmdline:get-itemproperty) AND cmdline:pschildname
+on_hit: alert, syslog
