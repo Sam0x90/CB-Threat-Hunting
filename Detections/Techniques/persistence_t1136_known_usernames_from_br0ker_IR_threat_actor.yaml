@@ -1,0 +1,9 @@
+name: Persistence, T1136 - Known usernames from Br0ker IR threat actor
+index_type: events
+description: Detects the usage of known username from Iranian threat actor known as Pioneer Kitten, Fox Kitten, UNC757, Parisite, RUBIDIUM, and Lemon Sandstorm during July-August 2024 campaign, observed by CISA and FBI (see advisory)
+references:
+    - https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-241a
+    - https://attack.mitre.org/versions/v15/techniques/T1136/
+tags: persistence, t1136
+search_query: os_type:windows AND username:"sqladmin$" OR username:"adfsservice" OR username:"IIS_Admin" OR username:"iis-admin" OR username:"John McCain" OR cmdline:"sqladmin$" OR cmdline:"adfsservice" OR cmdline:"IIS_Admin" OR cmdline:"iis-admin" OR cmdline:"John McCain"
+on_hit: alert, syslog

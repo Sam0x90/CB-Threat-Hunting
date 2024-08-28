@@ -1,0 +1,10 @@
+name: Defense Evasion, T1562.010 - Powershell version 2 downgrade attack
+index_type: events
+description: Detects PowerShell downgrade attack by identifying the use of version 2.0 in powershell command line. This technique was used among other, by Iran threat actor as described in FBI-CISA advisory in July-August 2024.
+references:
+    - https://github.com/SigmaHQ/sigma/blob/master/rules/windows/process_creation/proc_creation_win_powershell_downgrade_attack.yml
+    - https://www.cisa.gov/news-events/cybersecurity-advisories/aa24-241a
+    - https://attack.mitre.org/versions/v15/techniques/T1562/010/
+tags: defense_evasion, t1562.010
+search_query: os_type:windows AND (process_name:powershell.exe OR original_filename:powershell.exe) AND (cmdline:"-version 2" OR cmdline:"-versio 2" OR cmdline:"-versi 2" OR cmdline:"-vers 2" OR cmdline:"-ver 2" OR cmdline:"-ve 2" OR cmdline:"-v 2") 
+on_hit: alert, syslog
