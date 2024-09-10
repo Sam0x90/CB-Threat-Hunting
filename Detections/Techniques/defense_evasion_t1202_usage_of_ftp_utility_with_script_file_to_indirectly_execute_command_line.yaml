@@ -1,0 +1,9 @@
+name: Defense Evasion, T1202 - Usage of ftp utility with script file to indirectly execute command line
+index_type: events
+description: Detects the usage of ftp utility with either -s or /s argument for indirect execution of command line or either with any child process. This behavior has been observed to deliver Cobalt Strike beacon by Chianxin Virus Response Center.
+references:
+    - https://www.ctfiot.com/203334.html
+    - https://attack.mitre.org/techniques/T1202/
+tags: defense_evasion, t1202
+search_query: os_type:windows AND (process_name:ftp.exe OR original_filename:ftp.exe) AND ((cmdline:-s OR cmdline:/s) OR childproc_count:[1 TO *])
+on_hit: alert, syslog

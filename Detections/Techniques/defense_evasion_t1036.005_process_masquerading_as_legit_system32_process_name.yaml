@@ -1,0 +1,9 @@
+name: Defense Evasion, T1036.005 - Process masquerading as legit system32 process name
+index_type: events
+description: Detects a process using legitimate system32 process name executed from outside the legit system32 directory.
+references:
+    - https://attack.mitre.org/techniques/T1036/005/
+    - https://www.ctfiot.com/203334.html
+tags: defense_evasion, t1036.005
+search_query: os_type:windows AND (process_name:svchost.exe OR process_name:conhost.exe OR process_name:rundll32.exe OR process_name:dllhost.exe OR process_name:wmiprvse.exe OR process_name:lsass.exe OR process_name:taskhostw.exe) AND -path:c:/windows/system32/*
+on_hit: alert, syslog
